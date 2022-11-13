@@ -103,7 +103,7 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/alfredhua/alfredhua.github.io
+  repo: git@github.com:alfredhua/alfredhua.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
 
