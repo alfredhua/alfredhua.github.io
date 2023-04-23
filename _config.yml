@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 程序员阿华
-subtitle: '程序员阿华'
+title: alfredhua
+subtitle: 'alfredhua'
 description: ''
 keywords:
-author: 程序员阿华
+author: alfredhua
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.alfredhua.com
+url: https://alfredhua.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-matery
+theme: default
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
