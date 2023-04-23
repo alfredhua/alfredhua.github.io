@@ -1,6 +1,7 @@
 theme_color:
-  primary: indigo
-  accent: pink
+  color: cyan
+  primary: cyan
+  accent: green
 
 notice:
 
