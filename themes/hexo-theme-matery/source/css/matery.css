@@ -1,5 +1,8 @@
 /*全局基础样式*/
 /*小屏幕下(手机类)的样式*/
+.content {
+  padding-bottom:10px;
+}
 @media only screen and (max-width: 601px) {
     .container {
         width: 95%;
@@ -266,7 +269,8 @@ mark {
 }
 
 .pd-header {
-    margin-top: -64px;
+    /* margin-top: -64px; */
+  height:74px;
 }
 
 header .side-nav {
@@ -281,7 +285,7 @@ nav {
 
 header .nav-transparent {
     background-color: transparent !important;
-    background-image: none;
+    /* background-image: none; */
     box-shadow: none;
 }
 
@@ -696,7 +700,7 @@ header .go-back i {
 
 .dream {
     margin-top: 20px;
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
 }
 
 .dream .title,
@@ -905,7 +909,7 @@ article .tag-image img {
 }
 
 article .card .card-content {
-    padding: 15px 15px 12px 18px;
+    padding: 15px 15px 5px 18px;
 }
 
 article .article-content .summary {
@@ -913,6 +917,7 @@ article .article-content .summary {
     padding-left: 0;
     margin-bottom: 6px;
     word-break: break-all;
+    height: 65px;
 }
 
 article .article-content .publish-author {
@@ -2002,7 +2007,7 @@ p.search-result-summary{
 /* create the ... style */
 .block-with-text:before {
     /* points in the end */
-    content: '...';
+    /* content: '...'; */
     /* absolute position */
     position: absolute;
     /* set position to right bottom corner of block */
