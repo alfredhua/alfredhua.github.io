@@ -755,7 +755,7 @@
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2023/04/24/12.da-shu-ju/1hadoop-ji-qun-da-jian/">
+                        <a href="/2023/04/24/12.da-shu-ju/2.spark/">
                             <div class="card-image">
                                 
                                 
@@ -767,27 +767,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    集群规划
-端口说明
+                                    Local 模式
+启动 Local 环境
+
+进入解压缩后的路径，执行如下指令
+bin&#x2F;spark-shell
 
 
-端口名称
-Hadoop2.X
-Hadoop.x
 
 
-
-NameNode 内部通信端口
-8020 / 9000
-8020 / 9000/9820
-
-
-NameNode HTTP UI
-50070
-9870
-
-
-MapR
+Standalone 模式local 本地模式毕竟只是用来进行练习演示的，真实工作中还是要将应用提交到对应的 集
                                 
                             </div>
                             <div class="publish-info">
@@ -824,7 +813,7 @@ MapR
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2023/04/24/12.da-shu-ju/2.spark/">
+                        <a href="/2023/04/24/12.da-shu-ju/1hadoop-ji-qun-da-jian/">
                             <div class="card-image">
                                 
                                 
@@ -836,16 +825,27 @@ MapR
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Local 模式
-启动 Local 环境
-
-进入解压缩后的路径，执行如下指令
-bin&#x2F;spark-shell
+                                    集群规划
+端口说明
 
 
+端口名称
+Hadoop2.X
+Hadoop.x
 
 
-Standalone 模式local 本地模式毕竟只是用来进行练习演示的，真实工作中还是要将应用提交到对应的 集
+
+NameNode 内部通信端口
+8020 / 9000
+8020 / 9000/9820
+
+
+NameNode HTTP UI
+50070
+9870
+
+
+MapR
                                 
                             </div>
                             <div class="publish-info">
