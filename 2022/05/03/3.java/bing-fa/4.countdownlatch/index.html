@@ -239,16 +239,8 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">CountDownLatch详解</h1>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class=" post-cover">
+
 </div>
 
 
@@ -348,6 +340,9 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+    .expanded {
+      margin-top: -60px;
+    }
 </style>
 <div class="row">
     <div id="main-content" class="col s12 m12 l9">
@@ -408,6 +403,9 @@
         
 
         <div class="card-content article-card-content">
+            <div>
+              <h1 class="description center-align post-title">CountDownLatch详解</h1>
+            </div>
             <div id="articleContent">
                 <blockquote>
 <p>CountDownLatch是一个非常实用的多线程控制工具类。“Count Down”在英文中意为倒计数，Latch为门闩的意思。如果翻译成为倒计数门闩，我想大家都会觉得不知所云吧！因此，这里简单地称之为倒计数器。在这里，门闩的含义是：把门锁起来，不让里面的线程跑出来。因此，这个工具通常用来控制线程等待，它可以让某一个线程等待直到倒计时结束，再开始执行。</p>

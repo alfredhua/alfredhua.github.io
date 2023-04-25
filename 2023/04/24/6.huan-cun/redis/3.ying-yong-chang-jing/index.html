@@ -239,16 +239,8 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class=" post-cover">
+
 </div>
 
 
@@ -348,6 +340,9 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+    .expanded {
+      margin-top: -60px;
+    }
 </style>
 <div class="row">
     <div id="main-content" class="col s12 m12 l9">
@@ -395,6 +390,9 @@
         
 
         <div class="card-content article-card-content">
+            <div>
+              <h1 class="description center-align post-title"></h1>
+            </div>
             <div id="articleContent">
                 <h2 id="高性能"><a href="#高性能" class="headerlink" title="高性能"></a>高性能</h2><p>假设这么个场景，你有个操作，一个请求过来，吭哧吭哧你各种乱七八糟操作mysql，半天查出来一个结果，耗时600ms。但是这个结果可能接下来几个小时都不会变了，或者变了也可以不用立即反馈给用户。那么此时咋办？</p>
 <p>缓存啊，折腾600ms查出来的结果，扔缓存里，一个key对应一个value，下次再有人查，别走mysql折腾600ms了。直接从缓存里，通过一个key查出来一个value，2ms搞定。性能提升300倍。</p>

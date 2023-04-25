@@ -239,16 +239,8 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class=" post-cover">
+
 </div>
 
 
@@ -348,6 +340,9 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+    .expanded {
+      margin-top: -60px;
+    }
 </style>
 <div class="row">
     <div id="main-content" class="col s12 m12 l9">
@@ -395,6 +390,9 @@
         
 
         <div class="card-content article-card-content">
+            <div>
+              <h1 class="description center-align post-title"></h1>
+            </div>
             <div id="articleContent">
                 <h1 id="DI源码解析"><a href="#DI源码解析" class="headerlink" title="DI源码解析"></a>DI源码解析</h1><p>依赖注入发生的时间<br>当 Spring IOC 容器完成了 Bean 定义资源的定位、载入和解析注册以后，IOC 容器中已经管理类 Bean 定义的相关数据，但是此时 IOC 容器还没有对所管理的 Bean 进行依赖注入，依赖注入在以下两种情况 发生:<br>1)、用户第一次调用 getBean()方法时，IOC 容器触发依赖注入。<br> 2)、当用户在配置文件中将<bean>元素配置了 lazy-init=false 属性，即让容器在解析注册 Bean 定义 时进行预实例化，触发依赖注入。<br>BeanFactory 接口定义了 Spring IOC 容器的基本功能规范，是 Spring IOC 容器所应遵守的最底层和 最基本的编程规范。BeanFactory 接口中定义了几个 getBean()方法，就是用户向 IOC 容器索取管理的 Bean 的方法，我们通过分析其子类的具体实现，理解 Spring IOC 容器在用户索取 Bean 时如何完成依 赖注入。</p>
 <h2 id="寻找获取-Bean-的入口"><a href="#寻找获取-Bean-的入口" class="headerlink" title="寻找获取 Bean 的入口"></a>寻找获取 Bean 的入口</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java">

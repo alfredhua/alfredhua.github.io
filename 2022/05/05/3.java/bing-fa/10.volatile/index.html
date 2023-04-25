@@ -239,16 +239,8 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">volatile</h1>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class=" post-cover">
+
 </div>
 
 
@@ -348,6 +340,9 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+    .expanded {
+      margin-top: -60px;
+    }
 </style>
 <div class="row">
     <div id="main-content" class="col s12 m12 l9">
@@ -408,6 +403,9 @@
         
 
         <div class="card-content article-card-content">
+            <div>
+              <h1 class="description center-align post-title">volatile</h1>
+            </div>
             <div id="articleContent">
                 <h1 id="Volatile-如何保证可见性"><a href="#Volatile-如何保证可见性" class="headerlink" title="Volatile 如何保证可见性"></a>Volatile 如何保证可见性</h1><p>在前面我们提到volatile关键字可以保证多个线程运行时的可见性问题。在单核CPU的情况下，是不存在可见性问题的，如果是多核CPU，可见性问题就会暴露出来。</p>
 <p>我们知道线程中运行的代码最终都是交给CPU执行的，而代码执行时所需使用到的数据来自于内存(或者称之为主存)。但是CPU是不会直接操作内存的，每个CPU都会有自己的缓存，操作缓存的速度比操作主存更快。</p>

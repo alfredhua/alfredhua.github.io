@@ -239,16 +239,8 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class=" post-cover">
+
 </div>
 
 
@@ -348,6 +340,9 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+    .expanded {
+      margin-top: -60px;
+    }
 </style>
 <div class="row">
     <div id="main-content" class="col s12 m12 l9">
@@ -395,6 +390,9 @@
         
 
         <div class="card-content article-card-content">
+            <div>
+              <h1 class="description center-align post-title"></h1>
+            </div>
             <div id="articleContent">
                 <h3 id="为什么要统一管理微服务配置"><a href="#为什么要统一管理微服务配置" class="headerlink" title="为什么要统一管理微服务配置"></a>为什么要统一管理微服务配置</h3><p>对于Spring Boot应用，我们可以将配置内容写入<code>application.yml</code>，设置多个profile，也可以用多个<code>application-&#123;profile&#125;.properties</code>文件配置，并在启动时指定<code>spring.profiles.active=&#123;profile&#125;</code>来加载不同环境下的配置。</p>
 <p>在Spring Cloud微服务架构中，这种方式未必适用，微服务架构对配置管理有着更高的要求，如：</p>

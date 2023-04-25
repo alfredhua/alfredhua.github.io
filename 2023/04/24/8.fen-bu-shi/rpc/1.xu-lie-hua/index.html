@@ -239,16 +239,8 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class=" post-cover">
+
 </div>
 
 
@@ -348,6 +340,9 @@
         line-height: 48px;
         font-size: 1.4rem;
     }
+    .expanded {
+      margin-top: -60px;
+    }
 </style>
 <div class="row">
     <div id="main-content" class="col s12 m12 l9">
@@ -395,6 +390,9 @@
         
 
         <div class="card-content article-card-content">
+            <div>
+              <h1 class="description center-align post-title"></h1>
+            </div>
             <div id="articleContent">
                 <h2 id="XML-序列化"><a href="#XML-序列化" class="headerlink" title="XML 序列化"></a>XML 序列化</h2><p>XML 序列化的好处在于可读性好，方便阅读和调试。但是序列化以后的字节码文件比较大， 而且效率不高，适用于对性能不高，而且 QPS 较低的企业级内部系统之间的数据交换的场景， 同时 XML 又具有语言无关性，所以还可以用于异构系统之间的数据交换和协议。比如我们熟 知的 Webservice，就是采用 XML 格式对数据进行序列化的。XML 序列化/反序列化的实现方 式有很多，熟知的方式有 XStream 和 Java 自带的 XML 序列化和反序列化两种。</p>
 <h2 id="JSON-序列化框架"><a href="#JSON-序列化框架" class="headerlink" title="JSON 序列化框架"></a>JSON 序列化框架</h2><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，相对于 XML 来说，JSON 的字节流更小，而且可读性也非常好。现在 JSON 数据格式在企业运用是最普遍的<br>JSON 序列化常用的开源工具有很多</p>
