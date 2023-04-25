@@ -1223,22 +1223,19 @@ public class IntegetTest &#123;
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/05/03/3.java/bing-fa/2.bing-fa-ji-bie/">
+                        <a href="/2022/05/03/3.java/bing-fa/3.yin-yong/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="并发级别">
+                                <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="引用">
                                 
-                                <span class="card-title">并发级别</span>
+                                <span class="card-title">引用</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    
-由于临界区的存在，多线程之间的并发必须受到控制。根据控制并发的策略，我们可以把并发的级别进行分类，大致上可以分为阻塞、无饥饿、无障碍、无锁、无等待几种。
-
-阻塞：一个线程是阻塞的，那么在其他线程释放资源之前，当前线程无法继续执行。当我们使
+                                    强引用之前我们使用的大部分引用实际上都是强引用，这是使用最普遍的引用。比如下面这段代码中的object和str都是强引用： 不会被垃圾回收器回收。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也
                                 
                             </div>
                             <div class="publish-info">
@@ -1285,19 +1282,22 @@ public class IntegetTest &#123;
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2022/05/03/3.java/bing-fa/3.yin-yong/">
+                        <a href="/2022/05/03/3.java/bing-fa/2.bing-fa-ji-bie/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="引用">
+                                <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="并发级别">
                                 
-                                <span class="card-title">引用</span>
+                                <span class="card-title">并发级别</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    强引用之前我们使用的大部分引用实际上都是强引用，这是使用最普遍的引用。比如下面这段代码中的object和str都是强引用： 不会被垃圾回收器回收。当内存空间不足，Java虚拟机宁愿抛出OutOfMemoryError错误，使程序异常终止，也
+                                    
+由于临界区的存在，多线程之间的并发必须受到控制。根据控制并发的策略，我们可以把并发的级别进行分类，大致上可以分为阻塞、无饥饿、无障碍、无锁、无等待几种。
+
+阻塞：一个线程是阻塞的，那么在其他线程释放资源之前，当前线程无法继续执行。当我们使
                                 
                             </div>
                             <div class="publish-info">
