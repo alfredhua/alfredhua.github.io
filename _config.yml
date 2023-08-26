@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: alfredhua
-subtitle: 'alfredhua'
+title: 凌云
+subtitle: '凌云'
 description: ''
 keywords:
-author: alfredhua
+author: 凌云
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.alfredhua.com
+url: https://alfredhua.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
