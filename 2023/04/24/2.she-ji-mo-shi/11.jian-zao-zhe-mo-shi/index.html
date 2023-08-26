@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="alfredhua">
+    <meta name="keywords" content="建造者模式，设计模式">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>alfredhua</title>
+    <title>建造者模式 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -353,12 +353,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                设计模式
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -391,10 +404,107 @@
 
         <div class="card-content article-card-content">
             <div>
-              <h1 class="description center-align post-title"></h1>
+              <h1 class="description center-align post-title">建造者模式</h1>
             </div>
             <div id="articleContent">
-                
+                <h1 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h1><p>建造者模式，也叫生成器模式，可以理解成可以分步骤创建一个复杂的对象。在该模式中允许使用相同的创建代码生成不同类型和形式的对象。</p>
+<h2 id="对象定义"><a href="#对象定义" class="headerlink" title="对象定义"></a>对象定义</h2><ul>
+<li><p>Product(产品类) :我们具体需要生成的类对象</p>
+</li>
+<li><p>Builder(抽象建造者类)：为我们需要生成的类对象，构建不同的模块属性，即：公开构建产品类的属性，隐藏产品类的其他功能。</p>
+</li>
+<li><p>ConcreteBuilder(具体建造者类)：实现抽象类定义的所有方法，并返回一个组建好的对象。</p>
+</li>
+<li><p>Director(导演类)：确定构建我们的类对象具体有哪些模块属性，在实际应用中可以不需要这个角色，直接通过client处理。</p>
+</li>
+</ul>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>产品的建造和表示分离，实现了解耦，可以使用相同的创建过程得到不同的产品。</li>
+<li>将复杂产品的创建步骤分解在不同的方法中，使得创建过程更加清晰。</li>
+<li>增加新的具体建造者无需修改原有类库的代码，易于拓展，符合“开闭原则“。</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>产品必须有共同点，限制了使用范围。建造者模式创造出来的产品，其组成部分基本相同。</li>
+<li>产生多余的builder对象以及director对象，消耗内存。</li>
+</ol>
+<h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><h3 id="Product"><a href="#Product" class="headerlink" title="Product"></a>Product</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Product</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> reader<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> writer<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token class-name">String</span> setting<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Builder"><a href="#Builder" class="headerlink" title="Builder"></a>Builder</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Builder</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildReader</span><span class="token punctuation">(</span><span class="token class-name">String</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildWriter</span><span class="token punctuation">(</span><span class="token class-name">String</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildSetting</span><span class="token punctuation">(</span><span class="token class-name">String</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Product</span> <span class="token function">getJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="ConcreteBuilder"><a href="#ConcreteBuilder" class="headerlink" title="ConcreteBuilder"></a>ConcreteBuilder</h3><pre class="line-numbers language-none"><code class="language-none">public class ConcreteBuilder implements Builder&#123;
+
+    Product dataJson &#x3D; new Product();
+
+
+    @Override
+    public void buildReader(String val) &#123;
+        dataJson.setReader(val);
+    &#125;
+
+    @Override
+    public void buildWriter(String val) &#123;
+        dataJson.setWriter(val);
+    &#125;
+
+    @Override
+    public void buildSetting(String val) &#123;
+        dataJson.setSetting(val);
+    &#125;
+
+    @Override
+    public Product getJson() &#123;
+        return dataJson;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Director"><a href="#Director" class="headerlink" title="Director"></a>Director</h3><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Director</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token comment">//模拟 mysql -> hive</span>
+    <span class="token keyword">public</span> <span class="token class-name">Product</span> <span class="token function">buildMysqlJson</span><span class="token punctuation">(</span><span class="token class-name">Builder</span> builder<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        builder<span class="token punctuation">.</span><span class="token function">buildReader</span><span class="token punctuation">(</span><span class="token string">"mysql"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">buildWriter</span><span class="token punctuation">(</span><span class="token string">"hive"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">buildSetting</span><span class="token punctuation">(</span><span class="token string">"setting"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> builder<span class="token punctuation">.</span><span class="token function">getJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">//模拟 oracle -> hive</span>
+    <span class="token keyword">public</span> <span class="token class-name">Product</span> <span class="token function">buildOracleJson</span><span class="token punctuation">(</span><span class="token class-name">Builder</span> builder<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        builder<span class="token punctuation">.</span><span class="token function">buildReader</span><span class="token punctuation">(</span><span class="token string">"oracle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">buildWriter</span><span class="token punctuation">(</span><span class="token string">"hive"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        builder<span class="token punctuation">.</span><span class="token function">buildSetting</span><span class="token punctuation">(</span><span class="token string">"setting"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> builder<span class="token punctuation">.</span><span class="token function">getJson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><pre class="line-numbers language-none"><code class="language-none">public class Client &#123;
+    public static void main(String[] args) &#123;
+        Director director &#x3D; new Director();
+        Product productMysql &#x3D; director.buildMysqlJson(new ConcreteBuilder());
+        System.out.println(productMysql.toString());
+
+        Product productOracle &#x3D; director.buildOracleJson(new ConcreteBuilder());
+        System.out.println(productOracle.toString());
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><p>在日常开发中我们能经常用到Builder设计模式，最常见的就是核心程序中的StringBuilder了，在开源框架中我们也经常能够看到，例如Mybatis中的SqlSourceBuilder、XMLConfigBuilder等信息。</p>
+
                 
             </div>
             <hr/>
@@ -410,7 +520,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">alfredhua</a>
+                    <a href="/about" rel="external nofollow noreferrer">凌云</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -420,7 +530,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.alfredhua.com/2023/04/24/2.she-ji-mo-shi/11.jian-zao-zhe-mo-shi/">https://blog.alfredhua.com/2023/04/24/2.she-ji-mo-shi/11.jian-zao-zhe-mo-shi/</a>
+                    <a href="https://alfredhua.com/2023/04/24/2.she-ji-mo-shi/11.jian-zao-zhe-mo-shi/">https://alfredhua.com/2023/04/24/2.she-ji-mo-shi/11.jian-zao-zhe-mo-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -433,7 +543,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">alfredhua</a>
+                    <a href="/about" target="_blank">凌云</a>
                     !
                 </span>
             </div>
@@ -457,7 +567,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -653,7 +767,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            alfredhua
+                            凌云
                             
                         </span>
                     </div>
@@ -672,9 +786,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="中介者模式">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">中介者模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,11 +803,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            alfredhua
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -836,7 +962,7 @@
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->

@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>原型模式 | alfredhua</title>
+    <title>原型模式 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -408,10 +408,12 @@
             </div>
             <div id="articleContent">
                 <blockquote>
-<p>我们从数据库获取数据到DTO，从DTO传递给VO，这个时候需要将DTO层的数据全部copy到VO中，这种模式就是一种原型模式。<br>copy的方式是克隆。</p>
+<p>我们从数据库获取数据到DTO，从DTO传递给VO，这个时候需要将DTO层的数据全部copy到VO中，这种模式就是一种原型模式。 copy的方式是克隆。</p>
 </blockquote>
-<p>案例：spring中的  scope=’prototype’是一个原型模式，每次创建的时候都是一个新的对象，这个对象会取到原有对象的所有的值。</p>
-<h2 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆:"></a>浅克隆:</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Teacher</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span> <span class="token punctuation">&#123;</span>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ul>
+<li>spring中的  scope=’prototype’是一个原型模式，每次创建的时候都是一个新的对象，这个对象会取到原有对象的所有的值。</li>
+</ul>
+<h2 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Teacher</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span> <span class="token punctuation">&#123;</span>
 
     <span class="token annotation punctuation">@Override</span>
     <span class="token keyword">protected</span> <span class="token class-name">Object</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">CloneNotSupportedException</span> <span class="token punctuation">&#123;</span>
@@ -466,7 +468,7 @@
     <span class="token punctuation">&#125;</span>
     <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="深克隆："><a href="#深克隆：" class="headerlink" title="深克隆："></a>深克隆：</h2><blockquote>
+<h2 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h2><blockquote>
 <p>将所有的值都克隆，完全是新的一份，实现的方式也比较多。如：序列化，反射等。</p>
 </blockquote>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DeepTeacher</span> <span class="token keyword">implements</span> <span class="token class-name">Cloneable</span><span class="token punctuation">,</span><span class="token class-name">Serializable</span><span class="token punctuation">&#123;</span>
@@ -566,7 +568,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">alfredhua</a>
+                    <a href="/about" rel="external nofollow noreferrer">凌云</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -576,7 +578,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.alfredhua.com/2021/10/29/2.she-ji-mo-shi/6.yuan-xing-mo-shi/">https://blog.alfredhua.com/2021/10/29/2.she-ji-mo-shi/6.yuan-xing-mo-shi/</a>
+                    <a href="https://alfredhua.com/2021/10/29/2.she-ji-mo-shi/6.yuan-xing-mo-shi/">https://alfredhua.com/2021/10/29/2.she-ji-mo-shi/6.yuan-xing-mo-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,7 +591,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">alfredhua</a>
+                    <a href="/about" target="_blank">凌云</a>
                     !
                 </span>
             </div>
@@ -844,9 +846,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="策略和模板模式">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="策略模式">
                         
-                        <span class="card-title">策略和模板模式</span>
+                        <span class="card-title">策略模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1020,7 +1022,7 @@
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->

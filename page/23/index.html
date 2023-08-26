@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="alfredhua">
+    <meta name="keywords" content="凌云">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>alfredhua</title>
+    <title>凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -248,6 +248,113 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/10/29/2.she-ji-mo-shi/6.yuan-xing-mo-shi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="原型模式">
+                            
+                            <span class="card-title">原型模式</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+我们从数据库获取数据到DTO，从DTO传递给VO，这个时候需要将DTO层的数据全部copy到VO中，这种模式就是一种原型模式。 copy的方式是克隆。
+
+案例
+spring中的  scope=’prototype’是一个原型模式，每次创建
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                            <span class="chip bg-color">设计模式</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/28/2.she-ji-mo-shi/4.ce-lue-mo-shi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="策略模式">
+                            
+                            <span class="card-title">策略模式</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                策略模式
+策略模式侧重于选择，例如：支付方式，我们商品购物时，选择不同的渠道即可支付宝，微信，京东等。 主要解决。在有多种支付渠道相似的情况下，使用 if…else 所带来的复杂和难以维护。
+
+优点
+算法可以自由切换。 
+避免使用多重条件判
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                            <span class="chip bg-color">设计模式</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/10/27/2.she-ji-mo-shi/3.dai-li-mo-shi/">
                         <div class="card-image">
                             
@@ -375,15 +482,15 @@ DEMOpublic class Father &#123;
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                从简单的小作坊——》基本的工厂——》抽象工厂
+                                工厂模式分为: 简单工厂，基本工厂，抽象工厂
 简单工厂模式
-用户给一个值，工厂返回相应的对象
+用户给一个值，工厂返回相应的对象。
 
 DEMOpublic interface Milk &#123;
     String getMilk();
 &#125;
 
-public cl
+public c
                             
                         </div>
                         <div class="publish-info">
@@ -524,59 +631,7 @@ use pointers or references to base classes must be able to use objects of derive
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/29/3.java/ji-he/1.arraylist/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="ArrayList">
-                            
-                            <span class="card-title">ArrayList</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                操作public static void main(String[] args) &#123;
-    List&lt;Integer> arrayList=new ArrayList&lt;>();
-    //添加
-    arrayL
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/JAVA%E9%9B%86%E5%90%88/" class="post-category">
-                                    JAVA集合
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/JAVA%E9%9B%86%E5%90%88/">
-                            <span class="chip bg-color">JAVA集合</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/11/1.she-ji-yuan-ze/2.kai-bi-yuan-ze/">
+                    <a href="/2021/10/11/1.she-ji-yuan-ze/2.kai-bi-yuan-ze/">
                         <div class="card-image">
                             
                             
@@ -589,14 +644,13 @@ use pointers or references to base classes must be able to use objects of derive
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                开闭原则
-一个软件实体如类，模块和函数应该对扩展开放，对修改关闭。
-Software entities like classes,modules and functions should be open for extension but 
+                                开闭原则一个软件实体如类，模块和函数应该对扩展开放，对修改关闭。
+什么是开闭原则开闭原则：指一个软件实体如类、模块和函数应该对扩展开放，对修改关闭。所谓的开闭，也正是对扩展和修改两个行为的一个原则。强调的是用抽象构建框架，用实现扩展细节。可
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-11
                             </span>
                             <span class="publish-author">
                                 
@@ -627,7 +681,7 @@ Software entities like classes,modules and functions should be open for extensio
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/10/1.she-ji-yuan-ze/1.dan-yi-zhi-ze/">
+                    <a href="/2021/10/10/1.she-ji-yuan-ze/1.dan-yi-zhi-ze/">
                         <div class="card-image">
                             
                             
@@ -640,17 +694,13 @@ Software entities like classes,modules and functions should be open for extensio
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                什么是单一职责
-一个类应该有且只有一个变化的原因。
-There should never be more than one reason for a class to change.
-
-单一职责：指不要存在多于一个导致类变更 的原因。
-为什
+                                单一职责什么是单一职责?一个类应该有且只有一个变化的原因（指不要存在多于一个导致类变更的原因）。
+为什么要职责划分？如果一个类拥有多于一个的职责，则这些职责就耦合到在了一起，那么就会有多于一个原因来导致这个类的变化。对于某一职责的更改可能会
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-10
                             </span>
                             <span class="publish-author">
                                 
@@ -695,11 +745,12 @@ There should never be more than one reason for a class to change.
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">23 / 23</div>
+            <div class="center-align b-text-gray">23 / 24</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a class="right btn-floating btn-large disabled">
+            <a href="/page/24/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-right"></i>
             </a>
             
@@ -721,7 +772,7 @@ There should never be more than one reason for a class to change.
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->

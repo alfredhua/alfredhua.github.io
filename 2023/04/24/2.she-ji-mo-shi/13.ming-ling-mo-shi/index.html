@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="alfredhua">
+    <meta name="keywords" content="命令模式，设计模式">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>alfredhua</title>
+    <title>命令模式 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -353,12 +353,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                <span class="chip bg-color">设计模式</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                设计模式
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -391,10 +404,85 @@
 
         <div class="card-content article-card-content">
             <div>
-              <h1 class="description center-align post-title"></h1>
+              <h1 class="description center-align post-title">命令模式</h1>
             </div>
             <div id="articleContent">
-                
+                <h1 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h1><p>命令模式（Command Pattern）是一种数据驱动的设计模式，它属于行为型模式。请求以命令的形式包裹在对象中，并传给调用对象。调用对象寻找可以处理该命令的合适的对象，并把该命令传给相应的对象，该对象执行命令。</p>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>降低了系统耦合度。</li>
+<li>新的命令可以很容易添加到系统中去。</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>使用命令模式可能会导致某些系统有过多的具体命令类。</li>
+</ol>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>认为是命令的地方都可以使用命令模式，比如： 1、GUI 中每一个按钮都是一条命令。 2、模拟 CMD。</p>
+<h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>创建一个命令接口。</p>
+<pre class="line-numbers language-none"><code class="language-none">public interface Order &#123;
+   void execute();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>创建一个请求类。</p>
+<pre class="line-numbers language-none"><code class="language-none">public class Stock &#123;
+   
+   private String name &#x3D; &quot;ABC&quot;;
+   private int quantity &#x3D; 10;
+ 
+   public void buy()&#123;
+      System.out.println(&quot;Stock [ Name: &quot;+name+&quot;, 
+         Quantity: &quot; + quantity +&quot; ] bought&quot;);
+   &#125;
+   public void sell()&#123;
+      System.out.println(&quot;Stock [ Name: &quot;+name+&quot;, 
+         Quantity: &quot; + quantity +&quot; ] sold&quot;);
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>创建实现了 Order 接口的实体类。</p>
+<pre class="line-numbers language-none"><code class="language-none">public class BuyStock implements Order &#123;
+   private Stock abcStock;
+ 
+   public BuyStock(Stock abcStock)&#123;
+      this.abcStock &#x3D; abcStock;
+   &#125;
+ 
+   public void execute() &#123;
+      abcStock.buy();
+   &#125;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">public class SellStock implements Order &#123;
+   private Stock abcStock;
+ 
+   public SellStock(Stock abcStock)&#123;
+      this.abcStock &#x3D; abcStock;
+   &#125;
+ 
+   public void execute() &#123;
+      abcStock.sell();
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="第4步"><a href="#第4步" class="headerlink" title="第4步"></a>第4步</h3><p>创建命令调用类。</p>
+<pre class="line-numbers language-none"><code class="language-none">import java.util.ArrayList;
+import java.util.List;
+ 
+public class Broker &#123;
+   private List&lt;Order&gt; orderList &#x3D; new ArrayList&lt;Order&gt;(); 
+ 
+   public void takeOrder(Order order)&#123;
+      orderList.add(order);      
+   &#125;
+ 
+   public void placeOrders()&#123;
+      for (Order order : orderList) &#123;
+         order.execute();
+      &#125;
+      orderList.clear();
+   &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -410,7 +498,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">alfredhua</a>
+                    <a href="/about" rel="external nofollow noreferrer">凌云</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -420,7 +508,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.alfredhua.com/2023/04/24/2.she-ji-mo-shi/13.ming-ling-mo-shi/">https://blog.alfredhua.com/2023/04/24/2.she-ji-mo-shi/13.ming-ling-mo-shi/</a>
+                    <a href="https://alfredhua.com/2023/04/24/2.she-ji-mo-shi/13.ming-ling-mo-shi/">https://alfredhua.com/2023/04/24/2.she-ji-mo-shi/13.ming-ling-mo-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -433,7 +521,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">alfredhua</a>
+                    <a href="/about" target="_blank">凌云</a>
                     !
                 </span>
             </div>
@@ -457,7 +545,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                                    <span class="chip bg-color">设计模式</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -635,9 +727,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="中介者模式">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">中介者模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,11 +744,23 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            alfredhua
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-category">
+                                    设计模式
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                        <span class="chip bg-color">设计模式</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -690,7 +794,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            alfredhua
+                            凌云
                             
                         </span>
                     </div>
@@ -836,7 +940,7 @@
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->

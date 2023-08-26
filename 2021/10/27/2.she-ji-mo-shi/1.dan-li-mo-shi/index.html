@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>单例模式 | alfredhua</title>
+    <title>单例模式 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -428,19 +428,13 @@
 <h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><h3 id="饿汉式单例"><a href="#饿汉式单例" class="headerlink" title="饿汉式单例"></a>饿汉式单例</h3><blockquote>
 <p>在初始话的时候直接new出来了，不需要在调用的时候去new，这样就避免了线程安全的问题。</p>
 </blockquote>
-<ul>
-<li><p>优点</p>
-<ol>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
 <li>线程绝对安全。</li>
 <li>执行效率高。在类加载的时候就初始化了。</li>
 </ol>
-</li>
-<li><p>缺点</p>
-<ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
 <li>浪费类型空间，占用内存。占着空间，浪费资源。</li>
 </ol>
-</li>
-</ul>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Hungry</span> <span class="token punctuation">&#123;</span>
 
     <span class="token keyword">private</span> <span class="token class-name">Hungry</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
@@ -455,19 +449,14 @@
 <h3 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h3><blockquote>
 <p>在需要的时候才会去创建。</p>
 </blockquote>
-<ul>
-<li><p>优点</p>
-<ol>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ol>
 <li>占用空间小</li>
 </ol>
-</li>
-<li><p>缺点</p>
-<ol>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ol>
 <li>需要自己解决线程安全问题。</li>
 </ol>
-</li>
-<li><p>特点</p>
-<blockquote>
+<ul>
+<li>特点<blockquote>
 <p>在外部类被调用的时候内部类才会被加载内部类一定是要在方法调用之前初始化巧妙地避免了线程安全问题 这种形式兼顾饿汉式的内存浪费，也兼顾synchronized性能问题，完美地屏蔽了这两个缺点。</p>
 </blockquote>
 </li>
@@ -612,7 +601,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">alfredhua</a>
+                    <a href="/about" rel="external nofollow noreferrer">凌云</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -622,7 +611,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.alfredhua.com/2021/10/27/2.she-ji-mo-shi/1.dan-li-mo-shi/">https://blog.alfredhua.com/2021/10/27/2.she-ji-mo-shi/1.dan-li-mo-shi/</a>
+                    <a href="https://alfredhua.com/2021/10/27/2.she-ji-mo-shi/1.dan-li-mo-shi/">https://alfredhua.com/2021/10/27/2.she-ji-mo-shi/1.dan-li-mo-shi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -635,7 +624,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">alfredhua</a>
+                    <a href="/about" target="_blank">凌云</a>
                     !
                 </span>
             </div>
@@ -1066,7 +1055,7 @@
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->

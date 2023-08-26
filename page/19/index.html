@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="alfredhua">
+    <meta name="keywords" content="凌云">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>alfredhua</title>
+    <title>凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -248,6 +248,56 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2022/05/05/3.java/bing-fa/10.volatile/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="volatile">
+                            
+                            <span class="card-title">volatile</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Volatile 如何保证可见性在前面我们提到volatile关键字可以保证多个线程运行时的可见性问题。在单核CPU的情况下，是不存在可见性问题的，如果是多核CPU，可见性问题就会暴露出来。
+我们知道线程中运行的代码最终都是交给CPU执行的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%B9%B6%E5%8F%91/" class="post-category">
+                                    并发
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/volatile/">
+                            <span class="chip bg-color">volatile</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2022/05/05/3.java/bing-fa/8.synchronized/">
                         <div class="card-image">
                             
@@ -361,17 +411,14 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                类加载
-类加载过程
-
-
+                                类加载过程
 
 加载： 查找和导入class文件。
 
 
 通过一个类的全限定名获取定义此类的二进制字节流
 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构 
-在Java堆中生成一个代表这个类的java.lang.Clas
+在Java堆中生成一个代表这个类的java.lang.Class对象，作为
                             
                         </div>
                         <div class="publish-info">
@@ -382,8 +429,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD/" class="post-category">
-                                    JVM类加载
+                                <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                                 
                                 
@@ -396,6 +443,10 @@
                         
                         <a href="/tags/JVM/">
                             <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                        <a href="/tags/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD/">
+                            <span class="chip bg-color">JVM类加载</span>
                         </a>
                         
                     </div>
@@ -422,8 +473,7 @@
                             
                                 内存模型
 方法区用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。
-堆Java堆是Java虚拟机所管理内存中最大的一块，在虚拟机启动时创建，被所有线程共享。
-虚拟机栈虚拟机栈是一个线程执行的区域，保存着一个线程中
+虚拟机栈虚拟机栈是一个线程执行的区域，保存着一个线程中方法的调用状态。换句话说，一个Java线程的运行 状态，由一个虚拟机栈来保存，所以虚拟机栈
                             
                         </div>
                         <div class="publish-info">
@@ -434,8 +484,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="post-category">
-                                    JVM内存模型
+                                <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                                 
                                 
@@ -448,6 +498,10 @@
                         
                         <a href="/tags/JVM/">
                             <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                        <a href="/tags/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+                            <span class="chip bg-color">JVM内存模型</span>
                         </a>
                         
                     </div>
@@ -463,16 +517,16 @@
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="JVM内存模型">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="栈帧">
                             
-                            <span class="card-title">JVM内存模型</span>
+                            <span class="card-title">栈帧</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                栈帧
+                                
 栈帧:每个栈帧对应一个被调用的方法，可以理解为一个方法的运行空间。
 
 
@@ -480,7 +534,7 @@
 
 局部变量表(Local Variables)
 操作数栈(Operand Stack)、
-指向运行时常量池的引用(A reference to t
+指向运行时常量池的引用(A reference to the
                             
                         </div>
                         <div class="publish-info">
@@ -491,8 +545,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="post-category">
-                                    JVM内存模型
+                                <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                                 
                                 
@@ -505,6 +559,10 @@
                         
                         <a href="/tags/JVM/">
                             <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                        <a href="/tags/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+                            <span class="chip bg-color">JVM内存模型</span>
                         </a>
                         
                     </div>
@@ -520,21 +578,21 @@
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="垃圾回收">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="垃圾收集算法">
                             
-                            <span class="card-title">垃圾回收</span>
+                            <span class="card-title">垃圾收集算法</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                垃圾收集算法1、标记-清除(Mark-Sweep)标记：找出内存中需要回收的对象，并且把它们标记出来
+                                1、标记-清除(Mark-Sweep)标记：找出内存中需要回收的对象，并且把它们标记出来
 此时堆中所有的对象都会被扫描一遍，从而才能确定需要回收的对象，比较耗时
 清除：清除掉被标记需要回收的对象，释放出对应的内存空间
 
-缺点：
-
+缺点
+标记清除之后会
                             
                         </div>
                         <div class="publish-info">
@@ -545,8 +603,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/" class="post-category">
-                                    垃圾收集算法
+                                <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                                 
                                 
@@ -559,6 +617,10 @@
                         
                         <a href="/tags/JVM/">
                             <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">垃圾收集算法</span>
                         </a>
                         
                     </div>
@@ -596,8 +658,8 @@ Serial收集器Serial收集器是最基本、发展历史最悠久的收集器�
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="post-category">
-                                    垃圾收集器
+                                <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                                 
                                 
@@ -610,6 +672,10 @@ Serial收集器Serial收集器是最基本、发展历史最悠久的收集器�
                         
                         <a href="/tags/JVM/">
                             <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
+                            <span class="chip bg-color">垃圾收集器</span>
                         </a>
                         
                     </div>
@@ -650,8 +716,8 @@ Serial收集器Serial收集器是最基本、发展历史最悠久的收集器�
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/JVM%E5%8F%82%E6%95%B0/" class="post-category">
-                                    JVM参数
+                                <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                                 
                                 
@@ -666,60 +732,8 @@ Serial收集器Serial收集器是最基本、发展历史最悠久的收集器�
                             <span class="chip bg-color">JVM</span>
                         </a>
                         
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/05/03/3.java/jvm/7.jvm-chang-yong-ming-ling/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="JVM参数">
-                            
-                            <span class="card-title">JVM参数</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-title: JVM参数-码农阿华keywords: jvm，java，jps jinfo，jstat，jmapdescription:  
-
-
-jps
-查看当前运行的java程序的进程id号。
-
-jinfo 官网：https://doc
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/JVM%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-category">
-                                    JVM常用命令
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/JVM/">
-                            <span class="chip bg-color">JVM</span>
+                        <a href="/tags/JVM%E5%8F%82%E6%95%B0/">
+                            <span class="chip bg-color">JVM参数</span>
                         </a>
                         
                     </div>
@@ -745,7 +759,7 @@ jinfo 官网：https://doc
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">19 / 23</div>
+            <div class="center-align b-text-gray">19 / 24</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -772,7 +786,7 @@ jinfo 官网：https://doc
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->

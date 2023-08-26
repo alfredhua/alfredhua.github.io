@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JVM类加载 | alfredhua</title>
+    <title>JVM类加载 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -42,7 +42,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">alfredhua</span>
+                    <span class="logo-span">凌云</span>
                 </a>
             </div>
             
@@ -106,7 +106,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">alfredhua</div>
+        <div class="logo-name">凌云</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -359,6 +359,10 @@
                                 <span class="chip bg-color">JVM</span>
                             </a>
                         
+                            <a href="/tags/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD/">
+                                <span class="chip bg-color">JVM类加载</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -367,8 +371,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD/" class="post-category">
-                                JVM类加载
+                            <a href="/categories/JVM/" class="post-category">
+                                JVM
                             </a>
                         
                     </div>
@@ -407,10 +411,7 @@
               <h1 class="description center-align post-title">JVM类加载</h1>
             </div>
             <div id="articleContent">
-                <h1 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h1><blockquote>
-<p>类加载过程</p>
-</blockquote>
-<p><img src="https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/0PoSNF.png" alt="类加载过程"></p>
+                <h2 id="类加载过程"><a href="#类加载过程" class="headerlink" title="类加载过程"></a>类加载过程</h2><p><img src="https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/0PoSNF.png" alt="类加载过程"></p>
 <ol>
 <li>加载： 查找和导入class文件。</li>
 </ol>
@@ -430,7 +431,7 @@
 <ol start="3">
 <li>初始化<br>对类的静态变量，静态代码块执行初始化操作</li>
 </ol>
-<h1 id="类装载器ClassLoader"><a href="#类装载器ClassLoader" class="headerlink" title="类装载器ClassLoader"></a>类装载器ClassLoader</h1><ol>
+<h2 id="类装载器ClassLoader"><a href="#类装载器ClassLoader" class="headerlink" title="类装载器ClassLoader"></a>类装载器ClassLoader</h2><ol>
 <li>Bootstrap ClassLoader <blockquote>
 <p>负责加载$JAVA_HOME中 jre/lib/rt.jar 里所有的class或 Xbootclassoath选项指定的jar包。由C++实现，不是ClassLoader子类。</p>
 </blockquote>
@@ -448,12 +449,9 @@
 </blockquote>
 </li>
 </ol>
-<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/57e113a4e7084f0bb78d4338efa47825.png" alt="image"></p>
-<ul>
-<li>加载原则：检查某个类是否已经加载顺序是自底向上，从Custom ClassLoader到BootStrap ClassLoader逐层检查，只要某个Classloader已加载，就视为已加载此类，保证此类只所有ClassLoader加载一次。 加载的顺序:加载的顺序是自顶向下，也就是由上层来逐层尝试加载此类。</li>
-<li>双亲委派机制：</li>
-</ul>
-<ol>
+<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/57e113a4e7084f0bb78d4338efa47825.png" alt="类加载器"></p>
+<h2 id="加载原则"><a href="#加载原则" class="headerlink" title="加载原则"></a>加载原则</h2><p>检查某个类是否已经加载顺序是自底向上，从Custom ClassLoader到BootStrap ClassLoader逐层检查，只要某个Classloader已加载，就视为已加载此类，保证此类只所有ClassLoader加载一次。 加载的顺序:加载的顺序是自顶向下，也就是由上层来逐层尝试加载此类。</p>
+<h2 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h2><ol>
 <li>如果一个类加载器在接到加载类的请求时，它首先不会自己尝试去加载这个类，而是把 这个请求任务委托给父类加载器去完成，依次递归，如果父类加载器可以完成类加载任务，就成功返回;只有父类加载器无法完成此加载任务时，才自己去加载。</li>
 <li>优势:Java类随着加载它的类加载器一起具备了一种带有优先级的层次关系。比如，Java中的 Object类，它存放在rt.jar之中,无论哪一个类加载器要加载这个类，最终都是委派给处于模型 最顶端的启动类加载器进行加载，因此Object在各种类加载环境中都是同一个类。如果不采用 双亲委派模型，那么由各个类加载器自己取加载的话，那么系统中会存在多种不同的Object 类。</li>
 <li>破坏:可以继承ClassLoader类，然后重写其中的loadClass方法，其他方式大家可以自己了解拓展一下。</li>
@@ -474,7 +472,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">alfredhua</a>
+                    <a href="/about" rel="external nofollow noreferrer">凌云</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -484,7 +482,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.alfredhua.com/2022/05/03/3.java/jvm/1.jvm-jia-zai/">https://blog.alfredhua.com/2022/05/03/3.java/jvm/1.jvm-jia-zai/</a>
+                    <a href="https://alfredhua.com/2022/05/03/3.java/jvm/1.jvm-jia-zai/">https://alfredhua.com/2022/05/03/3.java/jvm/1.jvm-jia-zai/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -497,7 +495,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">alfredhua</a>
+                    <a href="/about" target="_blank">凌云</a>
                     !
                 </span>
             </div>
@@ -524,6 +522,10 @@
                             
                                 <a href="/tags/JVM/">
                                     <span class="chip bg-color">JVM</span>
+                                </a>
+                            
+                                <a href="/tags/JVM%E7%B1%BB%E5%8A%A0%E8%BD%BD/">
+                                    <span class="chip bg-color">JVM类加载</span>
                                 </a>
                             
                         </div>
@@ -771,8 +773,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="post-category">
-                                    JVM内存模型
+                            <a href="/categories/JVM/" class="post-category">
+                                    JVM
                                 </a>
                             
                             
@@ -784,6 +786,10 @@
                     
                     <a href="/tags/JVM/">
                         <span class="chip bg-color">JVM</span>
+                    </a>
+                    
+                    <a href="/tags/JVM%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">JVM内存模型</span>
                     </a>
                     
                 </div>
@@ -928,7 +934,7 @@
                 <span id="year">2021-2023</span>
             
             <!-- <span id="year">2021</span> -->
-            <a href="/about" target="_blank">alfredhua</a>
+            <a href="/about" target="_blank">凌云</a>
             <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a> -->
             <!-- <br> -->
