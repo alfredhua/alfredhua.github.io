@@ -1,3 +1,15 @@
+---
+title: IO多路复用
+date: 2023-08-27
+keywords: IO多路复用
+description: IO多路复用
+top: false
+tags:
+  -  Redis
+categories:
+  -  Redis
+---
+
 # 简介
 
 https://www.jianshu.com/p/a23b29f1511f
