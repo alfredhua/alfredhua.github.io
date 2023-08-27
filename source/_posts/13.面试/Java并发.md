@@ -4,9 +4,10 @@ date: 2021-11-22
 keywords: keywords
 description: description
 tags:
-  - tags
+  - 并发
+  - JAVA
 categories:
-  - categories
+  - 面试
 ---
 
 ## JUC 包中的原子类是哪4类?
