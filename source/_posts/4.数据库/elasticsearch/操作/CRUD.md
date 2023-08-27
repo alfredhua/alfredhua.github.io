@@ -1,3 +1,15 @@
+---
+title: elasticsearch基本操作
+date: 2023-08-27
+keywords:  elasticsearch基本操作
+description:  elasticsearch基本操作
+top: false
+tags:
+  -  elasticsearch
+categories:
+  -  elasticsearch
+---
+
 #  文档的基本 CRUD 与批量操作
 
 ## 创建自动生成 _id
