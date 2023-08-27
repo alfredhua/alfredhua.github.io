@@ -248,7 +248,7 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/5.index-cao-zuo/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/6.xiao-xi-diu-shi-wen-ti/">
                         <div class="card-image">
                             
                             
@@ -261,14 +261,14 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Index 相关 API查看索引相关信息GET movies
+                                消息丢失问题MQ数据丢失来源于三个地方：
 
-查看索引的文档总数GET movies/_count
+生产者，数据丢失。
+rabbitmq数据丢失。
+消费者数据丢失。
 
-查看前10条文档，了解文档格式POST movies/_search
-&#123;&#125;
-
-_cat indice
+1.生产者弄丢了数据生产者将数据发送到rabbitmq的时候，可能数据就在半路给搞丢了，因为网络啥的问题，都有可能。
+此时可以选
                             
                         </div>
                         <div class="publish-info">
@@ -292,7 +292,7 @@ _cat indice
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/7.ji-qun-cao-zuo/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/7.gao-ke-yong/">
                         <div class="card-image">
                             
                             
@@ -305,11 +305,166 @@ _cat indice
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                查看节点信息GET /_cat/nodes?v
+                                高可用rabbitmq有三种模式：单机模式，普通集群模式，镜像集群模式
+单机模式就是demo级别的，一般就是你本地启动了玩玩儿的，没人生产用单机模式。
+普通集群模式意思就是在多台机器上启动多个rabbitmq实例，每个机器启动一个。但是你创
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
 
-查看集群状态GET _cluster/health
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/1.an-zhuang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
 
-查看集群设置_cluster/settings
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                mac:brew install rabbitmq
+centos :yum install rabbitmq
+教程：https://www.rabbitmq.com/download.html
+默认账户：guest默认密码：guest
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/10.ru-he-she-ji-yi-ge-mq/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                如何设计一个MQ
+伸缩性。：设计个分布式的系统呗，参照一下kafka的设计理念，broker -&gt; topic -&gt; partition，每个partition放一个机器，就存一部分数据。如果现在资源不够了，简单啊，给topic
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/2.xiao-xi-mo-shi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                简单模式一个生产者P发送消息到队列Q,一个消费者C接收
+https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/u=3536793445,2882105203&amp;fm=26
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/readme/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+MQ
+rabbitmq
+kafka
 
 
 
@@ -337,7 +492,7 @@ _cat indice
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/8.duo-zi-duan-te-xing-ji-zi-ding-yi-analyzer/">
+                    <a href="/2023/04/24/7.mq/kafka/1.an-zhuang/">
                         <div class="card-image">
                             
                             
@@ -350,226 +505,13 @@ _cat indice
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                多字段特性
-厂商名字直接实现精确匹配
-
-增加一个keyword字段
-
-
-使用不同的analyzer
-
-不同语言
-拼音字段的搜索
-支持为搜索和索引指定不同的analyzer
-
-
-
-Exact Values v.s Full Text
- Exa
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/12.dao-pai-suo-yin/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                倒排索引搜索的核心需求是全文检索，全文检索简单来说就是要在大量文档中找到包含某个单词出现的位置，在传统关系型数据库中，数据检索只能通过 like 来实现。
-这种实现方式实际会存在很多问题：
-
-无法使用数据库索引，需要全表扫描，性能差
-搜索效
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/12.cuo-wu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1. elasticsearch6.x {“error”:”Content-Type header [application/x-www-form-urlencoded] is not supported”curl -X PUT 'loca
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/2.ji-ben-gai-nian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Node 与 ClusterElastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。
-单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。
-In
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/3.logstash-dao-ru-shu-ju/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                logstash
-下载对应版本的logstash
-
-
-wget https://artifacts.elastic.co/downloads/logstash/logstash-7.1.1.tar.gz
-
-
-下载测试数据
-
-下载最Movie
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/1.an-zhuang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                安装教程https://www.elastic.co/cn/downloads/elasticsearch
-docker 安装version: '3'
+                                version: '3'
 services:
-  cerebro:
-    image: lmenezes/cer
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    volumes:
+      -
                             
                         </div>
                         <div class="publish-info">
@@ -593,7 +535,7 @@ services:
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/10.ju-he/">
+                    <a href="/2023/04/24/7.mq/kafka/readme/">
                         <div class="card-image">
                             
                             
@@ -606,15 +548,52 @@ services:
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                桶
-桶 简单来说就是满足特定条件的文档的集合：
-
-一个雇员属于 男性 桶或者 女性 桶
-奥尔巴尼属于 纽约 桶
-日期2014-10-28属于 十月 桶
+                                
+kafka
+安装
+kafka
 
 
-当聚合开始被执行，每个文档里面的值通过计算来决定符合哪个桶的条件。如果匹配到，文档将
+
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/kafka/2.kafka/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                什么是kafka
+Apache Kafka是一个分布式发布 - 订阅消息系统和一个强大的队列，可以处理大量的数据，并使您能够将消息从一个端点传递到另一个端点。 Kafka适合离线和在线消息消费。 Kafka消息保留在磁盘上，并在群集内复制以
                             
                         </div>
                         <div class="publish-info">

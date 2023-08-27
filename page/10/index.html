@@ -248,7 +248,44 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/mybatis/readme/">
+                    <a href="/2023/04/24/8.fen-bu-shi/rpc/1.xu-lie-hua/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                XML 序列化XML 序列化的好处在于可读性好，方便阅读和调试。但是序列化以后的字节码文件比较大， 而且效率不高，适用于对性能不高，而且 QPS 较低的企业级内部系统之间的数据交换的场景， 同时 XML 又具有语言无关性，所以还可以用于异构
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/8.fen-bu-shi/rpc/readme/">
                         <div class="card-image">
                             
                             
@@ -262,11 +299,10 @@
                         <div class="summary block-with-text">
                             
                                 
-Mybatis
-jdbc连接流程
-源码解读
-手写mybatis
-ORM
+rpc
+序列化
+dubbo
+grpc
 
 
 
@@ -294,7 +330,7 @@ ORM
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/readme/">
+                    <a href="/2023/04/24/8.fen-bu-shi/readme/">
                         <div class="card-image">
                             
                             
@@ -308,11 +344,10 @@ ORM
                         <div class="summary block-with-text">
                             
                                 
-框架
-spring
-mybaits
-spring-boot
-spring-cloud
+缓存
+zookeeper
+rpc
+nacos
 
 
 
@@ -340,7 +375,7 @@ spring-cloud
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/mybatis/1.jdbc-lian-jie-liu-cheng/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/8.xiao-xi-ji-ya/">
                         <div class="card-image">
                             
                             
@@ -353,9 +388,11 @@ spring-cloud
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                JDBC 连接数据库
-注册驱动Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-打开连接，通过DriverManager获取一个连接conn &#x3D; DriverManager.get
+                                生产消息积压解决思路：
+
+先修复consumer的问题，确保其恢复消费速度，然后将现有cnosumer都停掉
+新建一个topic，partition是原来的10倍，临时建立好原先10倍或者20倍的queue数量
+然后写一个临时的分发数据的c
                             
                         </div>
                         <div class="publish-info">
@@ -379,7 +416,7 @@ spring-cloud
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/mybatis/2.yuan-ma-jie-du/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/9.si-xin-dui-lie/">
                         <div class="card-image">
                             
                             
@@ -392,16 +429,11 @@ spring-cloud
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-mybatis的核心模块
+                                死信队列介绍
+死信队列：DLX，dead-letter-exchange
+利用DLX，当消息在一个队列中变成死信 (dead message) 之后，它能被重新publish到另一个Exchange，这个Exchange就是DLX
 
-
-
-注解注入方式（入口）这里用的是Hikari连接，其它连接方式道理一样
-
- @Bean(name = "dataSource")
- public DataSource dataSource() &#123;
-
+消息变
                             
                         </div>
                         <div class="publish-info">
@@ -425,95 +457,7 @@ mybatis的核心模块
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/cao-zuo/suo-yin/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一、Index操作(增加)增加索引
-curl -X PUT ‘localhost:9200/weather’
-
-PUT /weather
-
-添加索引具有映射关系
-ES的字段类型
-
-PUT /weather1
-&#123;
-	"mapping
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/cao-zuo/crud/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                文档的基本 CRUD 与批量操作创建自动生成 _idPOST weather1/_doc/rAEhe4AB1GDKafqqvVdM
-&#123;
-  	"id" : 11111,
-    "city" : "北京",
-    "city_i
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/readme/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/readme/">
                         <div class="card-image">
                             
                             
@@ -527,17 +471,17 @@ PUT /weather1
                         <div class="summary block-with-text">
                             
                                 
-elasticsearch
-安装
-基本概念
-logstash导入数据
+MQ
+基本教程
+消息模式
 基本操作
-Index操作
-CRUD
-集群操作
-多字段特性及自定义Analyzer
-Index Template
-聚合
+消息的可靠性投递
+重复消费
+消息丢失问题
+高可用
+消息积压
+死信队列
+如何设计一个MQ
 
 
 
@@ -565,7 +509,7 @@ Index Template
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/9.indextemplate/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/3.ji-ben-cao-zuo/">
                         <div class="card-image">
                             
                             
@@ -578,12 +522,10 @@ Index Template
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                什么是Index Template
-Index Templates 帮助你设定Mappings 和Settings，并且按照一定的规则，字段匹配到新创建的索引上。
-
-
-模板仅在一个索引被创建是才会产生作用，修改模板不会影响已经创建的索引。
-
+                                创建用户并设置角色：可以创建管理员用户，负责整个MQ的运维，例如：
+sudo rabbitmqctl add_user  user_admin  passwd_admin  
+# demo
+rabbitmqctl add_user demo
                             
                         </div>
                         <div class="publish-info">
@@ -607,7 +549,7 @@ Index Templates 帮助你设定Mappings 和Settings，并且按照一定的规�
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/elasticsearch/4.ji-ben-cao-zuo/">
+                    <a href="/2023/04/24/7.mq/rabbitmq/4.xiao-xi-ke-kao-xing-tou-di/">
                         <div class="card-image">
                             
                             
@@ -620,11 +562,53 @@ Index Templates 帮助你设定Mappings 和Settings，并且按照一定的规�
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                新建和删除Index新建 Index，可以直接向 Elastic 服务器发出 PUT 请求。下面的例子是新建一个名叫weather的 Index。
-curl -X PUT 'localhost:9200/weather'
+                                消息可靠性投递消息落库，对消息状态打标。+轮训状态0，未处理，1：已经处理，2：失败（需要补偿机制）。
 
 
-服务器返回一个
+将业务订单数据和生成的Message进行持久化操作
+将Message发送到Broker服务器中
+通过RabbitMQ的Confirm
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/5.chong-fu-xiao-fei/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                重复消费问题ID主键基于数据库的唯一键来保证重复数据不会重复插入多条，进行消息入库。主键唯一，做异常处理机制。
+
+比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update一下好吧。
+
+Redis使用redis做
                             
                         </div>
                         <div class="publish-info">

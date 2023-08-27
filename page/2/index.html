@@ -248,85 +248,36 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/26/4.shu-ju-ku/mysql/readme/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/11.term-he-quan-wen-ben-cha-xun/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="elasticsearch的Term查询">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">elasticsearch的Term查询</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-MySQL
-安装与卸载
-忘记和修改密码
-基本语法
-索引
-SQL的执行流程
-MySQL存储结构
-MySQL事务
-MySQL锁
-性能优化
+                                基于Term的查询
+Term是表达语意的最小单位。搜索和利用统计语言模型进行自然语言处理都需要Term
 
-
-
-
+特点
+Term Level Query： term Query / Range Query / Exists Query / Pref
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/08/10/5.kuang-jia/mybatis/4.orm/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ORM">
-                            
-                            <span class="card-title">ORM</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                DBUtils如果项目中操作数据库比较少，使用DBUtils
-DbUtils 提供了一个QueryRunner类它对数据库的增删改查的方法进行了封装，那么我们操作数据库就可以直接使用它提供的方法。
-queryRunner &#x3D; ne
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/MyBatis/" class="post-category">
-                                    MyBatis
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
                                 </a>
                                 
                                 
@@ -337,8 +288,8 @@ queryRunner &#x3D; ne
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/MyBatis/">
-                            <span class="chip bg-color">MyBatis</span>
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
                         </a>
                         
                     </div>
@@ -350,34 +301,36 @@ queryRunner &#x3D; ne
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/07/08/3.java/wang-luo-bian-cheng/3.wireshark-zhua-bao/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/12.dao-pai-suo-yin/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Wireshark抓包">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="elasticsearch的倒排索引">
                             
-                            <span class="card-title">Wireshark抓包</span>
+                            <span class="card-title">elasticsearch的倒排索引</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Chrome 启动设置Chrome 启动参数需要配置如下内容：
-–user-data-dir 配置用户使用数据–ssl-key-log-file 配置 ssl-key-log 的存储路径
-$ &#x2F;Applications&#x2F;
+                                倒排索引搜索的核心需求是全文检索，全文检索简单来说就是要在大量文档中找到包含某个单词出现的位置，在传统关系型数据库中，数据检索只能通过 like 来实现。
+这种实现方式实际会存在很多问题：
+
+无法使用数据库索引，需要全表扫描，性能差
+搜索效
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E7%BD%91%E7%BB%9C/" class="post-category">
-                                    网络
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
                                 </a>
                                 
                                 
@@ -388,8 +341,8 @@ $ &#x2F;Applications&#x2F;
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                            <span class="chip bg-color">网络</span>
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
                         </a>
                         
                     </div>
@@ -401,35 +354,49 @@ $ &#x2F;Applications&#x2F;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/06/14/10.suan-fa/shu-zu/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/2.ji-ben-gai-nian/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="elasticsearch基本概念">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">elasticsearch基本概念</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                uuid: 476fa102-759e-338f-9997-aa17266e47e0uuid: c23404f0-972a-18f9-c882-e59b26d9e16duuid: 3dfd18c8-0fd5-0564-2735-b1720e
+                                Node 与 ClusterElastic 本质上是一个分布式数据库，允许多台服务器协同工作，每台服务器可以运行多个 Elastic 实例。
+单个 Elastic 实例称为一个节点（node）。一组节点构成一个集群（cluster）。
+In
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -438,37 +405,56 @@ $ &#x2F;Applications&#x2F;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/9.fu-wu-qi/1.centos-xia-ruan-jian-an-zhuang/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/3.logstash-dao-ru-shu-ju/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="elasticsearch导入数据">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">elasticsearch导入数据</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                JDK：下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-解压，配置环境变量即可。
-centos：查看端口开放
+                                logstash
+下载对应版本的logstash
+
+
+wget https://artifacts.elastic.co/downloads/logstash/logstash-7.1.1.tar.gz
+
+
+下载测试数据
+
+下载最Movie
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -477,41 +463,48 @@ centos：查看端口开放
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/9.fu-wu-qi/readme/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/4.ji-ben-cao-zuo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="elasticsearch基本操作">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">elasticsearch基本操作</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-centos
-centos下软件安装
-
-
-
-
+                                新建和删除Index新建 Index，可以直接向 Elastic 服务器发出 PUT 请求。下面的例子是新建一个名叫weather的 Index。
+curl -X PUT &#39;localhost:9200&#x2F;weather&#
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -520,38 +513,54 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/fen-bu-shi-shi-wu/seata/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/5.index-cao-zuo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="分布式事务-码农阿华">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="elasticsearch的 Index 操作">
                             
-                            <span class="card-title">分布式事务-码农阿华</span>
+                            <span class="card-title">elasticsearch的 Index 操作</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                事务严格意义上的事务实现应该是具备原子性、一致性、隔离性和持久性，简称 ACID。
+                                Index 相关 API查看索引相关信息GET movies
 
-原子性（Atomicity），可以理解为一个事务内的所有操作要么都执行，要么都不执行。
-一致性（Consistency），可以理解为数据是满足完整性约束的
+查看索引的文档总数GET movies&#x2F;_count
+
+查看前10条文档，了解文档格式POST movies&#x2F;_search
+&#123;&#125;
+
+_
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -560,36 +569,55 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/3.shi-yong-chang-jing/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/7.ji-qun-cao-zuo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="elasticsearch的集群操作">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">elasticsearch的集群操作</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-分布式协调 ：这个其实是zk很经典的一个用法，简单来说，就好比，你A系统发送个请求到mq，然后B消息消费之后处理了。那A系统如何知道B系统的处理结果？用zk就可以实现分布式系统之间的协调工作。A系统发送请求之后可以在zk上对某个节点的值注
+                                查看节点信息GET &#x2F;_cat&#x2F;nodes?v
+
+查看集群状态GET _cluster&#x2F;health
+
+查看集群设置_cluster&#x2F;settings
+
+
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -598,35 +626,116 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/4.fen-bu-shi-suo/">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/9.indextemplate/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="elasticsearch模板">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">elasticsearch模板</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                用 zookeeper 来实现分布式锁结合我们前面对 zookeeper 特性的分析和理解，我们可以 利用 zookeeper 节点的特性来实现独占锁，就是同级节点 的唯一性，多个进程往 zookeeper 的指定节点下创建一个 相同名称的
+                                什么是Index Template
+Index Templates 帮助你设定Mappings 和Settings，并且按照一定的规则，字段匹配到新创建的索引上。
+
+
+模板仅在一个索引被创建是才会产生作用，修改模板不会影响已经创建的索引。
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/08/27/4.shu-ju-ku/elasticsearch/8.duo-zi-duan-te-xing-ji-zi-ding-yi-analyzer/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="elasticsearch字段特性">
+                            
+                            <span class="card-title">elasticsearch字段特性</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                多字段特性
+厂商名字直接实现精确匹配
+
+增加一个keyword字段
+
+
+使用不同的analyzer
+
+不同语言
+拼音字段的搜索
+支持为搜索和索引指定不同的analyzer
+
+
+
+Exact Values v.s Full Text
+ Exa
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/elasticsearch/" class="post-category">
+                                    elasticsearch
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch/">
+                            <span class="chip bg-color">elasticsearch</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
