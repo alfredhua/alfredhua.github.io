@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="凌云">
+    <meta name="keywords" content="Mysql忘记密码">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>凌云</title>
+    <title>Mysql忘记密码 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -353,12 +353,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -367,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-24
+                    2023-08-27
                 </div>
                 
 
@@ -391,123 +404,39 @@
 
         <div class="card-content article-card-content">
             <div>
-              <h1 class="description center-align post-title"></h1>
+              <h1 class="description center-align post-title">Mysql忘记密码</h1>
             </div>
             <div id="articleContent">
-                <p>MySQL的查询执行流程：</p>
-<p> <img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/090c22c8ec064b508b6f06c5059bbcd5" alt="image"></p>
-<h2 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h2><p>  MySQL 内部自带了一个缓存模块。</p>
-<p>  MySQL 的缓存默认是关闭的。</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show variables like &#39;query_cache%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/edb14c8a9d2c4485aee798c231391298" alt="image"></p>
-<p>默认关闭的意思就是不推荐使用，为什么 MySQL 不推荐使用它自带的缓存呢?</p>
-<ol>
-<li>表里面任何一条数据发生变化的时候，这张表所有缓存都会失效，所以对于有大量数据更新的应用，也不适合。</li>
-<li>MySQL 自带的缓存的应用场景有限，第一个是它要求 SQL 语句必须一 模一样，中间多一个空格，字母大小写不同都被认为是不同的的 SQL。</li>
-</ol>
-<p>在 MySQL 8.0 中，查询缓存已经被移除了。</p>
-<h2 id="语法解析和预处理-Parser-amp-Preprocessor"><a href="#语法解析和预处理-Parser-amp-Preprocessor" class="headerlink" title="语法解析和预处理(Parser &amp; Preprocessor)"></a>语法解析和预处理(Parser &amp; Preprocessor)</h2><p> 对语句基于 SQL 语法进行词法和语法分析和语义的解析。</p>
-<ul>
-<li><p>词法解析</p>
-<p>词法分析就是把一个完整的 SQL 语句打碎成一个个的单词。</p>
-</li>
-<li><p>语法解析</p>
-<p>  语法分析会对 SQL 做一些语法检查，比如单引号有没有闭合， 然后根据 MySQL 定义的语法规则，根据 SQL 语句生成一个数据结构。这个数据结构我 们把它叫做解析树(select_lex)。</p>
-</li>
-<li><p>预处理器</p>
-<p>  如果我写了一个词法和语法都正确的 SQL，但是表名或者字段不存在，会在 哪里报错?是在数据库的执行层还是解析器?</p>
-<p>  实际上还是在解析的时候报错，解析 SQL 的环节里面有个预处理器。 </p>
-<p>  它会检查生成的解析树，解决解析器无法解析的语义。比如，它会检查表和列名是否存在，检查名字和别名，保证没有歧义。</p>
-</li>
-<li><p>查询优化(Query Optimizer)与查询执行计划</p>
-<p>  一条 SQL 语句是可以有很多种执行方式的，最终返回相同的结 果，他们是等价的。但是如果有这么多种执行方式，这些执行方式怎么得到的?最终选 择哪一种去执行?根据什么判断标准去选择?</p>
-<p>  这个就是 MySQL 的查询优化器的模块(Optimizer)。</p>
-<p>  查询优化器的目的就是根据解析树生成不同的执行计划(Execution Plan)，然后选择一种最优的执行计划，MySQL 里面使用的是基于开销(cost)的优化器，那种执行计 划开销最小，就用哪种。</p>
-  <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show status like &#39;Last_query_cost&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>  <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Last_query_cost">官网地址</a></p>
-<p>  优化器最终会把解析树变成一个查询执行计划，查询执行计划是一个数据结构。</p>
-<p>  MySQL 提供了一个执行计划的工具。我们在 SQL 语句前面加上 EXPLAIN，就可以看到执行计划的信息。</p>
-</li>
-</ul>
-<ul>
-<li>存储引擎</li>
-</ul>
-<ol>
-<li><p>MyISAM(3 个文件)</p>
-<p> 表级锁定限制了读/写的性能，因此在 Web 和数据仓库配置中， 它通常用于只读或以读为主的工作。</p>
-<p> 特点：</p>
-<ul>
-<li>支持表级别的锁(插入和更新会锁表)。不支持事务。 </li>
-<li>拥有较高的插入(insert)和查询(select)速度。</li>
-<li>存储了表的行数(count 速度更快)。</li>
-</ul>
-<p> 怎么快速向数据库插入 100 万条数据?</p>
-<p> 我们有一种先用 MyISAM 插入数据，然后修改存储引擎为 InnoDB 的操作</p>
-</li>
-<li><p>innoDB(2 个文件)</p>
-<p> 特点:</p>
-<ul>
-<li>支持事务，支持外键，因此数据的完整性、一致性更高。</li>
-<li>支持行级别的锁和表级别的锁。 </li>
-<li>支持读写并发，写不阻塞读(MVCC)。 </li>
-<li>特殊的索引存放方式，可以减少 IO，提升查询效率。 </li>
-</ul>
-<p> 适合:经常更新的表，存在并发读写或者有事务处理的业务系统。</p>
-</li>
-<li><p>Memory(1 个文件)</p>
-<ul>
-<li>把数据放在内存里面，读写的速度很快，但是数据库重启或者崩溃，数据会全部消 失。只适合做临时表。</li>
-</ul>
-</li>
-<li><p>CSV(3 个文件)</p>
-<p> 它的表实际上是带有逗号分隔值的文本文件。csv 表允许以 csv 格式导入或转储数据， 以便与读写相同格式的脚本和应用程序交换数据。因为 csv 表没有索引，所以通常在正 常操作期间将数据保存在 innodb 表中，并且只在导入或导出阶段使用 csv 表。</p>
-<p> 特点:</p>
-<blockquote>
-<p>不允许空行，不支持索引。格式通用，可以直接编辑，适合在不同数据库之 间导入导出。</p>
-</blockquote>
-</li>
-<li><p>Archive(2 个文件)</p>
-<p> 这些紧凑的未索引的表用于存储和检索大量很少引用的历史、存档或安全审计信息。</p>
-<p> 特点:</p>
-<blockquote>
-<p>不支持索引，不支持 update delete。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="如何选择存储引擎"><a href="#如何选择存储引擎" class="headerlink" title="如何选择存储引擎?"></a>如何选择存储引擎?</h2><ul>
-<li>如果对数据一致性要求比较高，需要事务支持，可以选择 InnoDB。</li>
-<li>如果数据查询多更新少，对查询性能要求比较高，可以选择 MyISAM。 </li>
-<li>如果需要一个用于查询的临时表，可以选择 Memory。 </li>
-<li>如果所有的存储引擎都不能满足你的需求，并且技术能力足够，可以根据官网内部<br>  手册用 C 语言开发一个存储引擎:<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/internals/en/custom-engine.html">官网地址</a></li>
-</ul>
-<p>MySQL的更新执行流程：</p>
-<p>缓存池：</p>
-<p>下一次读取相同的页，先判断是不是在缓冲池里面，如果是，就直接读取，不用再 次访问磁盘。</p>
-<p>修改数据的时候，先修改缓冲池里面的页。内存的数据页和磁盘数据不一致的时候， 我们把它叫做脏页。InnoDB 里面有专门的后台线程把 Buffer Pool 的数据写入到磁盘， 每隔一段时间就一次性地把多个修改写入磁盘，这个动作就叫做刷脏。</p>
-<p>redo log：</p>
-<p>redo log 是固定大小的，比如可以配置为一组 4 个文件，每个文件的大小是 1GB，那么这块区域总共就可以记录 4GB 的操作。从头开始写，写到末尾就又回到开头循环写，如下面这个图所示。</p>
-<p>write pos 和 checkpoint 之间的是区域上还空着的部分，可以用来记录新的操作。如果 write pos 追上 checkpoint，表示区域满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把 checkpoint 推进一下。</p>
-<p>有了 redo log，InnoDB 就可以保证即使数据库发生异常重启，之前提交的记录都不会丢失，这个能力称为 crash-safe。</p>
-<p>binlog：</p>
-<p>binlog 以事件的形式记录了所有的 DDL 和 DML 语句(因为它记录的是操作而不是 数据值，属于逻辑日志)，可以用来做主从复制和数据恢复。<br>跟 redo log 不一样，它的文件内容是可以追加的，没有固定大小限制。<br>在开启了 binlog 功能的情况下，我们可以把 binlog 导出成 SQL 语句，把所有的操 作重放一遍，来实现数据的恢复。</p>
-<p>binlog 的另一个功能就是用来实现主从复制，它的原理就是从服务器读取主服务器的binlog，然后执行一遍。</p>
-<p>Update 操作流程：<br>如：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update T set c&#x3D;c+1 where ID&#x3D;2;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ul>
-<li>执行器先找引擎取 ID=2 这一行。ID 是主键，引擎直接用树搜索找到这一行。如果 ID=2 这一行所在的数据页本来就在内存中，就直接返回给执行器；否则，需要先从磁盘读入内存，然后再返回。</li>
-<li>执行器拿到引擎给的行数据，把这个值加上 1，比如原来是 N，现在就是 N+1，得到新的一行数据，再调用引擎接口写入这行新数据。</li>
-<li>引擎将这行新数据更新到内存中，同时将这个更新操作记录到 redo log 里面，此时 redo log 处于 prepare 状态。然后告知执行器执行完成了，随时可以提交事务。</li>
-<li>执行器生成这个操作的 binlog，并把 binlog 写入磁盘。</li>
-<li>执行器调用引擎的提交事务接口，引擎把刚刚写入的 redo log 改成提交（commit）状态，更新完成。</li>
-</ul>
-<h2 id="为什么会有两份日志呢？"><a href="#为什么会有两份日志呢？" class="headerlink" title="为什么会有两份日志呢？"></a>为什么会有两份日志呢？</h2><p>MySQL 自带的引擎是 MyISAM，但是 MyISAM 没有 crash-safe 的能力，binlog 日志只能用于归档。而 InnoDB 是另一个公司以插件形式引入 MySQL 的，既然只依靠 binlog 是没有 crash-safe 能力的，所以 InnoDB 使用另外一套日志系统——也就是 redo log 来实现 crash-safe 能力。</p>
-<ul>
-<li>redo log 是 InnoDB 引擎特有的；</li>
-<li>binlog 是 MySQL 的 Server 层实现的，所有引擎都可以使用。</li>
-<li>redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；binlog 是逻辑日志，记录的是这个语句的原始逻辑，比如“给 ID=2 这一行的 c 字段加 1 ”。redo log 是循环写的，空间固定会用完；binlog 是可以追加写入的。“追加写”是指 binlog 文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
-</ul>
-<p> MySQL 分成三层，跟客户端对接的连接层，真正执行操作的服 务层，和跟硬件打交道的存储引擎层</p>
-<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/58b3dbf5c81447e2a007f35074007cf4" alt="image"></p>
+                <h2 id="忘记密码："><a href="#忘记密码：" class="headerlink" title="忘记密码："></a>忘记密码：</h2><p>1、编辑文件<br>vi /etc/my.cnf    </p>
+<p>#，找到[mysqld]，在下面添加一行</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">skip-grant-tables
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>重启MySQL服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">service mysqld restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>2、进入MySQL控制台</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mysql -uroot -p <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>3、修改root密码</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">
+update mysql.user set Password&#x3D;password(&#39;123456&#39;) where User&#x3D;&quot;root&quot; and Host&#x3D;&quot;localhost&quot;;
+
+grant all on *.* to &#39;root&#39;@&#39;localhost&#39; identified by &#39;123456&#39; with grant option;
+
+#刷新系统授权表
+flush privileges;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>4、取消/etc/my.cnf中的skip-grant-tables</p>
+<p>编辑文件 /etc/my.cnf，找到[mysqld]，删除skip-grant-tables这一行</p>
+<p>5、重启mysql</p>
+<p>重启MySQL服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">service mysqld restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>6、进入mysql控制台<br>mysql -uroot -p  #进入mysql控制台<br>123456 #输入密码</p>
+<h2 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h2><p>mac上安装完Mysql之后会给一个密码，这个密码是自动生成的不能作为密码使用。</p>
+<p>在登录之后需要重置密码：</p>
+<p>命令：SET PASSWORD = PASSWORD(‘123456’); </p>
+<p>在mac上初次安装完成mysql时，会生成一个初始的密码，然后用以下方式来修改密码即可。初始密码不能连接。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin&#x2F;mysqladmin -h localhost -u root password &#39;123@qwe&#39; -p&#39;123456&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
@@ -534,7 +463,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/5.sql-de-zhi-xing-liu-cheng/">https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/5.sql-de-zhi-xing-liu-cheng/</a>
+                    <a href="https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/2.wang-ji-he-xiu-gai-mi-ma/">https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/2.wang-ji-he-xiu-gai-mi-ma/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -571,7 +500,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -745,13 +678,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/readme/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/1.mysql-an-zhuang-yu-xie-zai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Mysql 的安装与卸载">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Mysql 的安装与卸载</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -762,15 +695,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -782,13 +727,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/6.mysql-de-cun-chu-jie-gou/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/3.mysql-de-ji-ben-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Mysql基本语法">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Mysql基本语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -799,15 +744,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>

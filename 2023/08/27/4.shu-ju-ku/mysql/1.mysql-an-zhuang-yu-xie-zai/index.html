@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="凌云">
+    <meta name="keywords" content="Mysql">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>凌云</title>
+    <title>Mysql 的安装与卸载 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -353,12 +353,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -367,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-24
+                    2023-08-27
                 </div>
                 
 
@@ -391,153 +404,101 @@
 
         <div class="card-content article-card-content">
             <div>
-              <h1 class="description center-align post-title"></h1>
+              <h1 class="description center-align post-title">Mysql 的安装与卸载</h1>
             </div>
             <div id="articleContent">
-                <p>事务就是要保证一组数据库操作，要么全部成功，要么全部失败。</p>
-<h2 id="ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性"><a href="#ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性" class="headerlink" title="ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性)"></a>ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性)</h2><ul>
-<li><p>原子性（Atomicity）</p>
-<p>  也就是我们刚才说的不可再分，也就意味着我们对数 据库的一系列的操作，要么都是成功，要么都是失败，不可能出现部分成功或者部分失 败的情况。以转账的场景为例，一个账户的余额减少，对应一个账户的增加，这两个一 定是同时成功或者同时失败的。</p>
-</li>
-<li><p>一致性（consistent）</p>
-<p>  指的是数据库的完整性约束没有被破坏，事务执行的 前后都是合法的数据状态。比如主键必须是唯一的，字段长度符合要求。</p>
-</li>
-<li><p>隔离性（Isolation）</p>
-<p>  在数据库里面会有很多的 事务同时去操作我们的同一张表或者同一行数据，必然会产生一些并发或者干扰的操作， 那么我们对隔离性的定义，就是这些很多个的事务，对表或者行的并发操作，应该是透 明的，互相不干扰的。通过这种方式，我们最终也是保证业务数据的一致性。</p>
-</li>
-<li><p>持久性（Durable）</p>
-<p>  我们对数据库的任意 的操作，增删改，只要事务提交成功，那么结果就是永久性的，不可能因为我们系统宕 机或者重启了数据库的服务器，它又恢复到原来的状态了。这个就是事务的持久性。</p>
-<p>  持久性是通过 redo log 和 double write 双写缓冲来实现的，我们操作数据的时候，会先写到内存的 buffer pool 里面，同时记录 redo log，如果在刷盘之前出现异常，在 重启后就可以读取 redo log 的内容，写入到磁盘，保证数据的持久性。</p>
-</li>
-</ul>
-<h2 id="手动开启事务也有几种方式"><a href="#手动开启事务也有几种方式" class="headerlink" title="手动开启事务也有几种方式?"></a>手动开启事务也有几种方式?</h2><p>一种是用 begin;一种是用 start transaction。</p>
-<p>结束也有两种方式，第一种就是提交一个事务， commit;还有一种就是 rollback，回滚的时候，事务也会结束。还有一种情况，客户端 的连接断开的时候，事务也会结束。</p>
-<h2 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h2><ul>
-<li>读未提交是指，一个事务还没提交时，它做的变更就能被别的事务看到。</li>
-<li>读提交是指，一个事务提交之后，它做的变更才会被其他事务看到。</li>
-<li>可重复读是指，一个事务执行过程中看到的数据，总是跟这个事务在启动时看到的数据是一致的。当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
-<li>串行化，顾名思义是对于同一行记录，“写”会加“写锁”，“读”会加“读锁”。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行。</li>
-</ul>
-<pre><code>![image](http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/58e73934bbb8447ba73eae4c801ea4ba.png
-</code></pre>
-<p>)</p>
-<ul>
-<li><p>若隔离级别是“读未提交”， 则 V1 的值就是 2。这时候事务 B 虽然还没有提交，但是结果已经被 A 看到了。因此，V2、V3 也都是 2。</p>
-</li>
-<li><p>若隔离级别是“读提交”，则 V1 是 1，V2 的值是 2。事务 B 的更新在提交后才能被 A 看到。所以， V3 的值也是 2。</p>
-</li>
-<li><p>若隔离级别是“可重复读”，则 V1、V2 是 1，V3 是 2。之所以 V2 还是 1，遵循的就是这个要求：事务在执行期间看到的数据前后必须是一致的。</p>
-</li>
-<li><p>若隔离级别是“串行化”，则在事务 B 执行“将 1 改成 2”的时候，会被锁住。直到事务 A 提交后，事务 B 才可以继续执行。所以从 A 的角度看， V1、V2 值是 1，V3 的值是 2。</p>
-</li>
-</ul>
-<h2 id="事务并带来的问题"><a href="#事务并带来的问题" class="headerlink" title="事务并带来的问题?"></a>事务并带来的问题?</h2><blockquote>
-<p>读取到其他事务未提交的数据的情况，我们把它叫做脏读。</p>
-</blockquote>
+                <h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a target="_blank" rel="noopener" href="http://dev.mysql.com/downloads/mysql/5.5.html#downloads">http://dev.mysql.com/downloads/mysql/5.5.html#downloads</a></p>
+<p>在centos下解压，配置环境变量即可。</p>
+<p>提示安装完成后，输入mysql 看是否安装成功</p>
+<p>如果出现如下错误信息：</p>
 <blockquote>
-<p>一个事务读取到了其他事务已提交的数据导致前后两次读取数据不一致的情 况，我们把它叫做不可重复读。</p>
+<p>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)</p>
 </blockquote>
-<blockquote>
-<p>一个事务前后两次读取数据数据不一致，是由于其他事务插入数据造成的，这种情 况我们把它叫做幻读。</p>
-</blockquote>
-<blockquote>
-<p>不可重复读是修改或者删除，幻读是插入。</p>
-</blockquote>
-<h1 id="MVVC"><a href="#MVVC" class="headerlink" title="MVVC"></a>MVVC</h1><p> MVCC (Multiversion Concurrency Control) 中文全程叫多版本并发控制，是现代数据库（包括 MySQL、Oracle、PostgreSQL 等）引擎实现中常用的处理读写冲突的手段，目的在于提高数据库高并发场景下的吞吐性能。</p>
+<p>说明mysql服务还没有启动，输入service mysql start启动mysql服务</p>
+<p>service mysql start</p>
+<h3 id="修改密码。"><a href="#修改密码。" class="headerlink" title="修改密码。"></a>修改密码。</h3><p>格式：mysqladmin -u用户名 -p旧密码 password 新密码</p>
 <ol>
-<li>插入数据（insert）:记录的版本号即当前事务的版本号</li>
+<li>给root加个密码123456。键入以下命令：</li>
 </ol>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into testmvcc values(1,&quot;test&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>假设事务id为1，那么插入后的数据行如下：</p>
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>create version</th>
-<th>delete version</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>test</td>
-<td>1</td>
-<td></td>
-</tr>
-</tbody></table>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysqladmin -u root -password 123456<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="2">
-<li>在更新操作的时候，采用的是先标记旧的那行记录为已删除，并且删除版本号是事务版本号，然后插入一行新的记录的方式。</li>
+<li>再将root的密码改为56789。<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysqladmin -u root -p123456 password 56789<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
-<p>比如，针对上面那行记录，事务Id为2 要把name字段更新</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update table set name&#x3D; &#39;new_value&#39; where id&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>首次安装时，默认密码为空，可以使用如下命令修改root密码</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysqladmin -u root  password mypassword<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>create version</th>
-<th>delete version</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>test</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td>1</td>
-<td>new_value</td>
-<td>2</td>
-<td></td>
-</tr>
-</tbody></table>
-<ol start="3">
-<li>删除操作的时候，就把事务版本号作为删除版本号。比如</li>
-</ol>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete from table where id&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>mypassword 为你设定的新密码</p>
+<p>然后再次登录</p>
+<p>mysql -u root –p</p>
+<h3 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h3><p>rpm包安装的MySQL是不会安装/etc/my.cnf文件的，解决方法，只需要复制/usr/share/mysql目录下的my-huge.cnf 文件到/etc目录，并改名为my.cnf即可</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cp &#x2F;usr&#x2F;share&#x2F;mysql&#x2F;my-huge.cnf &#x2F;etc&#x2F;my.cnf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>配置远程访问处于安全考虑，Mysql默认是不允许远程访问的，可以使用下面开启远程访问</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">&#x2F;&#x2F;赋予任何主机访问数据的权限
+GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;WITH GRANT OPTION;
 
-<table>
-<thead>
-<tr>
-<th>id</th>
-<th>name</th>
-<th>create version</th>
-<th>delete version</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>test</td>
-<td>2</td>
-<td>3</td>
-</tr>
-</tbody></table>
-<ol start="4">
-<li><p>查询操作：</p>
-<p> 从上面的描述可以看到，在查询时要符合以下两个条件的记录才能被事务查询出来：</p>
-</li>
-</ol>
-<ol>
-<li><p>删除版本号未指定或者大于当前事务版本号，即查询事务开启后确保读取的行未被删除。(即上述事务id为2的事务查询时，依然能读取到事务id为3所删除的数据行)</p>
-</li>
-<li><p>创建版 本号 小于或者等于 当前事务版本号 ，就是说记录创建是在当前事务中（等于的情况）或者在当前事务启动之前的其他事物进行的insert。</p>
-</li>
-</ol>
-<p>补充：</p>
-<ol>
-<li><p>MVCC手段只适用于Msyql隔离级别中的读已提交（Read committed）和可重复读（Repeatable Read）.</p>
-</li>
-<li><p>Read uncimmitted由于存在脏读，即能读到未提交事务的数据行，所以不适用MVCC.</p>
-<p> 原因是MVCC的创建版本和删除版本只要在事务提交后才会产生。</p>
-</li>
-<li><p>串行化由于是会对所涉及到的表加锁，并非行锁，自然也就不存在行的版本控制问题。</p>
-</li>
-<li><p>通过以上总结，可知，MVCC主要作用于事务性的，有行锁控制的数据库模型。</p>
-</li>
-</ol>
+&#x2F;&#x2F;使修改生效
+FLUSH PRIVILEGES;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果依然不能远程访问的话，那就很可能防火墙的原因了，可以在防火墙中开启3306端口或者干脆关掉防火墙。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;etc&#x2F;init.d&#x2F;iptables status
+&#96;&#96;&#96;  
+会得到一系列信息，说明防火墙开着。
+&#96;&#96;&#96;shell
+&#x2F;etc&#x2F;init.d&#x2F;iptables stop
+&#96;&#96;&#96;  
+永久关闭:
+&#96;&#96;&#96;shell
+chkconfig --level 35 iptables off
+&#96;&#96;&#96;  
+mysql 重新启动
+
+&#96;&#96;&#96;shell
+
+service mysqld restart
+
+systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="Mac下安装"><a href="#Mac下安装" class="headerlink" title="Mac下安装"></a>Mac下安装</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">brew install mysql@5.7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>配置环境变量</p>
+<p>修改配置文件：/usr/local/etcmy.cnf</p>
+<h3 id="Mac下完全卸载Mysql的方法"><a href="#Mac下完全卸载Mysql的方法" class="headerlink" title="Mac下完全卸载Mysql的方法"></a>Mac下完全卸载Mysql的方法</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo rm &#x2F;usr&#x2F;local&#x2F;mysql
+sudo rm -rf &#x2F;usr&#x2F;local&#x2F;mysql*
+sudo rm -rf &#x2F;Library&#x2F;StartupItems&#x2F;MySQLCOM
+sudo rm -rf &#x2F;Library&#x2F;PreferencePanes&#x2F;My*
+vim &#x2F;etc&#x2F;hostconfig  (and removed the line MYSQLCOM&#x3D;-YES-)
+rm -rf ~&#x2F;Library&#x2F;PreferencePanes&#x2F;My*
+sudo rm -rf &#x2F;Library&#x2F;Receipts&#x2F;mysql*
+sudo rm -rf &#x2F;Library&#x2F;Receipts&#x2F;mysql*
+sudo rm -rf &#x2F;var&#x2F;db&#x2F;receipts&#x2F;com.mysql.*
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="DockerCompose-安装"><a href="#DockerCompose-安装" class="headerlink" title="DockerCompose 安装"></a>DockerCompose 安装</h3><pre class="line-numbers language-none"><code class="language-none">&#96;version: &#39;3&#39;
+services:
+  mysql:
+    image: &#39;mysql&#x2F;mysql-server:5.7&#39;
+    restart: always
+    container_name: mysql
+    privileged: true
+    environment:
+      TZ: Asia&#x2F;Shanghai
+      MYSQL_ROOT_PASSWORD: $&#123;MYSQL_ROOT_PASSWORD&#125;
+    ports:
+      - &#39;$&#123;MYSQL_PORT&#125;:3306&#39;
+    volumes:
+      - $&#123;MYSQL_DATA_PATH&#125;:&#x2F;var&#x2F;lib&#x2F;mysql
+      - $&#123;MYSQL_CONFIG_PATH&#125;:&#x2F;etc&#x2F;my.cnf
+    networks:
+      net:
+        ipv4_address: $&#123;MYSQL_IP&#125;
+
+networks:
+   net:
+      ipam:
+         config:
+         - subnet: $&#123;SUB_NET&#125;
+           gateway: $&#123;GATEWAY_IP&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -564,7 +525,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/7.mysql-shi-wu/">https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/7.mysql-shi-wu/</a>
+                    <a href="https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/1.mysql-an-zhuang-yu-xie-zai/">https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/1.mysql-an-zhuang-yu-xie-zai/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,7 +562,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -771,17 +736,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/6.mysql-de-cun-chu-jie-gou/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/1.mysql-an-zhuang-yu-xie-zai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Mysql 的安装与卸载">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Mysql 的安装与卸载</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,16 +757,29 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -812,13 +791,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/2.wang-ji-he-xiu-gai-mi-ma/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/2.wang-ji-he-xiu-gai-mi-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Mysql忘记密码">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Mysql忘记密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -829,15 +808,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>

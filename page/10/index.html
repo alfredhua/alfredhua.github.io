@@ -248,7 +248,7 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/mysql/2.wang-ji-he-xiu-gai-mi-ma/">
+                    <a href="/2023/04/24/5.kuang-jia/mybatis/readme/">
                         <div class="card-image">
                             
                             
@@ -261,14 +261,16 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                忘记密码：1、编辑文件vi /etc/my.cnf    
-#，找到[mysqld]，在下面添加一行
-skip-grant-tables
+                                
+Mybatis
+jdbc连接流程
+源码解读
+手写mybatis
+ORM
 
-重启MySQL服务
-service mysqld restart
-2、进入MySQL控制台
-mysq
+
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -292,7 +294,7 @@ mysq
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/mysql/3.mysql-de-ji-ben-yu-fa/">
+                    <a href="/2023/04/24/5.kuang-jia/readme/">
                         <div class="card-image">
                             
                             
@@ -305,15 +307,16 @@ mysq
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                建库create database test;
+                                
+框架
+spring
+mybaits
+spring-boot
+spring-cloud
 
-查看当前库
-show databases;
 
-进入当前使用的库use test;
 
-建表create table test(
-    id varchar(10) primary key n
+
                             
                         </div>
                         <div class="publish-info">
@@ -337,7 +340,7 @@ show databases;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/mysql/4.mysql-suo-yin/">
+                    <a href="/2023/04/24/5.kuang-jia/mybatis/1.jdbc-lian-jie-liu-cheng/">
                         <div class="card-image">
                             
                             
@@ -350,8 +353,9 @@ show databases;
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                索引是什么？索引是为了加速对表中数据行的检索而创建的一种分散存储的 数据结构。
-首先数据是以文件的形式存放在磁盘上面的，每一行数据都有它的磁盘地址。如果 没有索引的话，要从 500 万行数据里面检索一条数据，只能依次遍历这张表的全部数据，直
+                                JDBC 连接数据库
+注册驱动Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+打开连接，通过DriverManager获取一个连接conn &#x3D; DriverManager.get
                             
                         </div>
                         <div class="publish-info">
@@ -375,7 +379,7 @@ show databases;
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/4.shu-ju-ku/mysql/1.mysql-an-zhuang-yu-xie-zai/">
+                    <a href="/2023/04/24/5.kuang-jia/mybatis/2.yuan-ma-jie-du/">
                         <div class="card-image">
                             
                             
@@ -388,12 +392,16 @@ show databases;
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                下载地址：http://dev.mysql.com/downloads/mysql/5.5.html#downloads
-centos下解压，配置环境变量即可。
-提示安装完成后，输入mysql 看是否安装成功
-如果出现如下错误信息：
+                                
+mybatis的核心模块
 
-ER
+
+
+注解注入方式（入口）这里用的是Hikari连接，其它连接方式道理一样
+
+ @Bean(name = "dataSource")
+ public DataSource dataSource() &#123;
+
                             
                         </div>
                         <div class="publish-info">

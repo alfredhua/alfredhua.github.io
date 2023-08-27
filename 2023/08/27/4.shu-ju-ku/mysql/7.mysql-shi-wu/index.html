@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="凌云">
+    <meta name="keywords" content="MySQL事务">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>凌云</title>
+    <title>MySQL事务 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -353,12 +353,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -367,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-24
+                    2023-08-27
                 </div>
                 
 
@@ -391,42 +404,151 @@
 
         <div class="card-content article-card-content">
             <div>
-              <h1 class="description center-align post-title"></h1>
+              <h1 class="description center-align post-title">MySQL事务</h1>
             </div>
             <div id="articleContent">
-                <p>MySQL 的存储结构分为 5 级</p>
-<ul>
-<li>表空间</li>
-<li>段</li>
-<li>簇</li>
-<li>页</li>
-<li>行</li>
-</ul>
-<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/ee07f222f4824a09b391d1052bc71cdb.png" alt="image"></p>
-<ul>
-<li><p>表空间 Table Space</p>
-<p>  表空间可以看做是 InnoDB 存储引擎逻辑结构的 最高层，所有的数据都存放在表空间中。分为:系统表空间、独占表空间、通用表空间、 临时表空间、Undo 表空间。</p>
+                <p>事务就是要保证一组数据库操作，要么全部成功，要么全部失败。</p>
+<h2 id="ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性"><a href="#ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性" class="headerlink" title="ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性)"></a>ACID（Atomicity、Consistency、Isolation、Durability，即原子性、一致性、隔离性、持久性)</h2><ul>
+<li><p>原子性（Atomicity）</p>
+<p>  也就是我们刚才说的不可再分，也就意味着我们对数 据库的一系列的操作，要么都是成功，要么都是失败，不可能出现部分成功或者部分失 败的情况。以转账的场景为例，一个账户的余额减少，对应一个账户的增加，这两个一 定是同时成功或者同时失败的。</p>
 </li>
-<li><p>段 Segment</p>
-<p>  表空间是由各个段组成的，常见的段有数据段、索引段、回滚段等，段是一个逻辑的概念。一个 ibd 文件(独立表空间文件)里面会由很多个段组成。</p>
-<p>  创建一个索引会创建两个段，一个是索引段:leaf node segment，一个是数据段: non-leaf node segment。索引段管理非叶子节点的数据。数据段管理叶子节点的数据。 也就是说，一个表的段数，就是索引的个数乘以 2。</p>
+<li><p>一致性（consistent）</p>
+<p>  指的是数据库的完整性约束没有被破坏，事务执行的 前后都是合法的数据状态。比如主键必须是唯一的，字段长度符合要求。</p>
 </li>
-<li><p>簇 Extent</p>
-<p>  一个段(Segment)又由很多的簇(也可以叫区)组成，每个区的大小是 1MB(64 个连续的页)。</p>
-<p>  每一个段至少会有一个簇，一个段所管理的空间大小是无限的，可以一直扩展下去， 但是扩展的最小单位就是簇。</p>
+<li><p>隔离性（Isolation）</p>
+<p>  在数据库里面会有很多的 事务同时去操作我们的同一张表或者同一行数据，必然会产生一些并发或者干扰的操作， 那么我们对隔离性的定义，就是这些很多个的事务，对表或者行的并发操作，应该是透 明的，互相不干扰的。通过这种方式，我们最终也是保证业务数据的一致性。</p>
 </li>
-<li><p>页 Page</p>
-<p>  为了高效管理物理空间，对簇进一步细分，就得到了页。簇是由连续的页(Page) 组成的空间，一个簇中有 64 个连续的页。 (1MB/16KB=64)。这些页面在物理上和 逻辑上都是连续的。  </p>
-<p>  跟大多数数据库一样，InnoDB 也有页的概念(也可以称为块)，每个页默认 16KB。 页是 InnoDB 存储引擎磁盘管理的最小单位，通过 innodb_page_size 设置。</p>
-<p>  一个表空间最多拥有 2^32 个页，默认情况下一个页的大小为 16KB，也就是说一个 表空间最多存储 64TB 的数据。</p>
-<p>  注意，文件系统中，也有页的概念。</p>
-<p>  操作系统和内存打交道，最小的单位是页 Page。文件系统的内存页通常是 4K。<br>  <img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/848ababd82844cfcb326d4c483321813.png" alt="image"></p>
-</li>
-<li><p>行 Row</p>
-<p>  格式：<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-row-format.html">https://dev.mysql.com/doc/refman/5.7/en/innodb-row-format.html</a></p>
-<p>  InnoDB 存储引擎是面向行的(row-oriented)，也就是说数据的存放按行进行存 放。</p>
+<li><p>持久性（Durable）</p>
+<p>  我们对数据库的任意 的操作，增删改，只要事务提交成功，那么结果就是永久性的，不可能因为我们系统宕 机或者重启了数据库的服务器，它又恢复到原来的状态了。这个就是事务的持久性。</p>
+<p>  持久性是通过 redo log 和 double write 双写缓冲来实现的，我们操作数据的时候，会先写到内存的 buffer pool 里面，同时记录 redo log，如果在刷盘之前出现异常，在 重启后就可以读取 redo log 的内容，写入到磁盘，保证数据的持久性。</p>
 </li>
 </ul>
+<h2 id="手动开启事务也有几种方式"><a href="#手动开启事务也有几种方式" class="headerlink" title="手动开启事务也有几种方式?"></a>手动开启事务也有几种方式?</h2><p>一种是用 begin;一种是用 start transaction。</p>
+<p>结束也有两种方式，第一种就是提交一个事务， commit;还有一种就是 rollback，回滚的时候，事务也会结束。还有一种情况，客户端 的连接断开的时候，事务也会结束。</p>
+<h2 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h2><ul>
+<li>读未提交是指，一个事务还没提交时，它做的变更就能被别的事务看到。</li>
+<li>读提交是指，一个事务提交之后，它做的变更才会被其他事务看到。</li>
+<li>可重复读是指，一个事务执行过程中看到的数据，总是跟这个事务在启动时看到的数据是一致的。当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
+<li>串行化，顾名思义是对于同一行记录，“写”会加“写锁”，“读”会加“读锁”。当出现读写锁冲突的时候，后访问的事务必须等前一个事务执行完成，才能继续执行。</li>
+</ul>
+<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/58e73934bbb8447ba73eae4c801ea4ba.png" alt="image"></p>
+<ul>
+<li><p>若隔离级别是“读未提交”， 则 V1 的值就是 2。这时候事务 B 虽然还没有提交，但是结果已经被 A 看到了。因此，V2、V3 也都是 2。</p>
+</li>
+<li><p>若隔离级别是“读提交”，则 V1 是 1，V2 的值是 2。事务 B 的更新在提交后才能被 A 看到。所以， V3 的值也是 2。</p>
+</li>
+<li><p>若隔离级别是“可重复读”，则 V1、V2 是 1，V3 是 2。之所以 V2 还是 1，遵循的就是这个要求：事务在执行期间看到的数据前后必须是一致的。</p>
+</li>
+<li><p>若隔离级别是“串行化”，则在事务 B 执行“将 1 改成 2”的时候，会被锁住。直到事务 A 提交后，事务 B 才可以继续执行。所以从 A 的角度看， V1、V2 值是 1，V3 的值是 2。</p>
+</li>
+</ul>
+<h2 id="事务并带来的问题"><a href="#事务并带来的问题" class="headerlink" title="事务并带来的问题?"></a>事务并带来的问题?</h2><blockquote>
+<p>读取到其他事务未提交的数据的情况，我们把它叫做脏读。</p>
+</blockquote>
+<blockquote>
+<p>一个事务读取到了其他事务已提交的数据导致前后两次读取数据不一致的情 况，我们把它叫做不可重复读。</p>
+</blockquote>
+<blockquote>
+<p>一个事务前后两次读取数据数据不一致，是由于其他事务插入数据造成的，这种情 况我们把它叫做幻读。</p>
+</blockquote>
+<blockquote>
+<p>不可重复读是修改或者删除，幻读是插入。</p>
+</blockquote>
+<h1 id="MVVC"><a href="#MVVC" class="headerlink" title="MVVC"></a>MVVC</h1><p> MVCC (Multiversion Concurrency Control) 中文全程叫多版本并发控制，是现代数据库（包括 MySQL、Oracle、PostgreSQL 等）引擎实现中常用的处理读写冲突的手段，目的在于提高数据库高并发场景下的吞吐性能。</p>
+<ol>
+<li>插入数据（insert）:记录的版本号即当前事务的版本号</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into testmvcc values(1,&quot;test&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>假设事务id为1，那么插入后的数据行如下：</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>create version</th>
+<th>delete version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>test</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>在更新操作的时候，采用的是先标记旧的那行记录为已删除，并且删除版本号是事务版本号，然后插入一行新的记录的方式。</li>
+</ol>
+<p>比如，针对上面那行记录，事务Id为2 要把name字段更新</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">update table set name&#x3D; &#39;new_value&#39; where id&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>create version</th>
+<th>delete version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>test</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>new_value</td>
+<td>2</td>
+<td></td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>删除操作的时候，就把事务版本号作为删除版本号。比如</li>
+</ol>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete from table where id&#x3D;1;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+<th>create version</th>
+<th>delete version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>test</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<ol start="4">
+<li><p>查询操作：</p>
+<p> 从上面的描述可以看到，在查询时要符合以下两个条件的记录才能被事务查询出来：</p>
+</li>
+</ol>
+<ol>
+<li><p>删除版本号未指定或者大于当前事务版本号，即查询事务开启后确保读取的行未被删除。(即上述事务id为2的事务查询时，依然能读取到事务id为3所删除的数据行)</p>
+</li>
+<li><p>创建版 本号 小于或者等于 当前事务版本号 ，就是说记录创建是在当前事务中（等于的情况）或者在当前事务启动之前的其他事物进行的insert。</p>
+</li>
+</ol>
+<p>补充：</p>
+<ol>
+<li><p>MVCC手段只适用于Msyql隔离级别中的读已提交（Read committed）和可重复读（Repeatable Read）.</p>
+</li>
+<li><p>Read uncimmitted由于存在脏读，即能读到未提交事务的数据行，所以不适用MVCC.</p>
+<p> 原因是MVCC的创建版本和删除版本只要在事务提交后才会产生。</p>
+</li>
+<li><p>串行化由于是会对所涉及到的表加锁，并非行锁，自然也就不存在行的版本控制问题。</p>
+</li>
+<li><p>通过以上总结，可知，MVCC主要作用于事务性的，有行锁控制的数据库模型。</p>
+</li>
+</ol>
 
                 
             </div>
@@ -453,7 +575,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/6.mysql-de-cun-chu-jie-gou/">https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/6.mysql-de-cun-chu-jie-gou/</a>
+                    <a href="https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/7.mysql-shi-wu/">https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/7.mysql-shi-wu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -490,7 +612,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -664,13 +790,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/5.sql-de-zhi-xing-liu-cheng/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/6.mysql-de-cun-chu-jie-gou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL存储结构">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MySQL存储结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -681,15 +807,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -701,13 +839,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/7.mysql-shi-wu/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/8.mysql-suo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="MySQL锁">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MySQL锁</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -718,15 +856,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>

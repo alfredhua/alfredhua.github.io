@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="凌云">
+    <meta name="keywords" content="MySQL的执行流程">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>凌云</title>
+    <title>MySQL的执行流程 | 凌云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -353,12 +353,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -367,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-04-24
+                    2023-08-27
                 </div>
                 
 
@@ -391,223 +404,117 @@
 
         <div class="card-content article-card-content">
             <div>
-              <h1 class="description center-align post-title"></h1>
+              <h1 class="description center-align post-title">MySQL的执行流程</h1>
             </div>
             <div id="articleContent">
-                <p>性能调优，大部分时候想要实现的目标是让我们的查询更快。一个查询的 动作又是由很多个环节组成的，每个环节都会消耗时间。</p>
-<p>我们要减少查询所消耗的时间，就要从每一个环节入手。</p>
-<ul>
-<li>连接——配置优化</li>
-</ul>
-<p>第一个环节是客户端连接到服务端，连接这一块有可能会出现什么样的性能问题? 有可能是服务端连接数不够导致应用程序获取不到连接。比如报了一个 Mysql: error 1040: Too many connections 的错误。</p>
+                <h2 id="查询执行流程"><a href="#查询执行流程" class="headerlink" title="查询执行流程"></a>查询执行流程</h2><p> <img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/090c22c8ec064b508b6f06c5059bbcd5" alt="image"></p>
+<h2 id="查询缓存"><a href="#查询缓存" class="headerlink" title="查询缓存"></a>查询缓存</h2><p>  MySQL 内部自带了一个缓存模块。</p>
+<p>  MySQL 的缓存默认是关闭的。</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show variables like &#39;query_cache%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/edb14c8a9d2c4485aee798c231391298" alt="image"></p>
+<p>默认关闭的意思就是不推荐使用，为什么 MySQL 不推荐使用它自带的缓存呢?</p>
 <ol>
-<li><p>从服务端来说，我们可以增加服务端的可用连接数。</p>
-<p> 修改配置参数增加可用连接数，修改 max_connections 的大小:</p>
- <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show variables like &#39;max_connections&#39;; 
--- 修改最大连接数，当有多个应用连接的时候<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<li>表里面任何一条数据发生变化的时候，这张表所有缓存都会失效，所以对于有大量数据更新的应用，也不适合。</li>
+<li>MySQL 自带的缓存的应用场景有限，第一个是它要求 SQL 语句必须一 模一样，中间多一个空格，字母大小写不同都被认为是不同的的 SQL。</li>
+</ol>
+<p>在 MySQL 8.0 中，查询缓存已经被移除了。</p>
+<h2 id="语法解析和预处理-Parser-amp-Preprocessor"><a href="#语法解析和预处理-Parser-amp-Preprocessor" class="headerlink" title="语法解析和预处理(Parser &amp; Preprocessor)"></a>语法解析和预处理(Parser &amp; Preprocessor)</h2><p> 对语句基于 SQL 语法进行词法和语法分析和语义的解析。</p>
+<ul>
+<li><p>词法解析</p>
+<p>词法分析就是把一个完整的 SQL 语句打碎成一个个的单词。</p>
+</li>
+<li><p>语法解析</p>
+<p>  语法分析会对 SQL 做一些语法检查，比如单引号有没有闭合， 然后根据 MySQL 定义的语法规则，根据 SQL 语句生成一个数据结构。这个数据结构我 们把它叫做解析树(select_lex)。</p>
+</li>
+<li><p>预处理器</p>
+<p>  如果我写了一个词法和语法都正确的 SQL，但是表名或者字段不存在，会在 哪里报错?是在数据库的执行层还是解析器?</p>
+<p>  实际上还是在解析的时候报错，解析 SQL 的环节里面有个预处理器。 </p>
+<p>  它会检查生成的解析树，解决解析器无法解析的语义。比如，它会检查表和列名是否存在，检查名字和别名，保证没有歧义。</p>
+</li>
+<li><p>查询优化(Query Optimizer)与查询执行计划</p>
+<p>  一条 SQL 语句是可以有很多种执行方式的，最终返回相同的结 果，他们是等价的。但是如果有这么多种执行方式，这些执行方式怎么得到的?最终选 择哪一种去执行?根据什么判断标准去选择?</p>
+<p>  这个就是 MySQL 的查询优化器的模块(Optimizer)。</p>
+<p>  查询优化器的目的就是根据解析树生成不同的执行计划(Execution Plan)，然后选择一种最优的执行计划，MySQL 里面使用的是基于开销(cost)的优化器，那种执行计 划开销最小，就用哪种。</p>
+  <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show status like &#39;Last_query_cost&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>  <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/server-status-variables.html#statvar_Last_query_cost">官网地址</a></p>
+<p>  优化器最终会把解析树变成一个查询执行计划，查询执行计划是一个数据结构。</p>
+<p>  MySQL 提供了一个执行计划的工具。我们在 SQL 语句前面加上 EXPLAIN，就可以看到执行计划的信息。</p>
+</li>
+</ul>
+<h2 id="更新执行流程"><a href="#更新执行流程" class="headerlink" title="更新执行流程"></a>更新执行流程</h2><p>如：</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">
+update T set c&#x3D;c+1 where ID&#x3D;2;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p> 或者及时释放不活动的连接。交互式和非交互式的客户端的默认超时时<br>间都是 28800 秒，8 小时，我们可以把这个值调小。</p>
- <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show global variables like &#39;wait_timeout&#39;; 
---及时释放不活动的连接，注意不要释放连接池还在使用的连接<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>从客户端来说，可以减少从服务端获取的连接数，如果我们想要不是每一次执行 SQL 都创建一个新的连接，应该怎么做?</p>
-<p> 这个时候我们可以引入连接池，实现连接的重用。</p>
-<p> 连接池的大小应该怎么设置呢?</p>
-<p> 连接池并不是越大越好，只要维护一定数量大小的连接池， 其他的客户端排队等待获取连接就可以了。有的时候连接池越大，效率反而越低。<br>Druid 的默认最大连接池大小是 8。Hikari 的默认最大连接池大小是 10。</p>
-<h3 id="为什么默认值都是这么小呢"><a href="#为什么默认值都是这么小呢" class="headerlink" title="为什么默认值都是这么小呢?"></a>为什么默认值都是这么小呢?</h3><p> 在 Hikari 的 github 文档中，给出了一个 PostgreSQL 数据库建议的设置连接池大小的公式:<a target="_blank" rel="noopener" href="https://github.com/brettwooldridge/HikariCP/wiki/About-Pool-Sizing">地址</a></p>
-<p> 它的建议是机器核数乘以 2 加 1。也就是说，4 核的机器，连接池维护 9 个连接就 够了。这个公式从一定程度上来说对其他数据库也是适用的。这里面还有一个减少连接 池大小实现提升并发度和吞吐量的案例。</p>
-<h3 id="为什么有的情况下，减少连接数反而会提升吞吐量呢-为什么建议设置的连接池大-小要跟-CPU-的核数相关呢"><a href="#为什么有的情况下，减少连接数反而会提升吞吐量呢-为什么建议设置的连接池大-小要跟-CPU-的核数相关呢" class="headerlink" title="为什么有的情况下，减少连接数反而会提升吞吐量呢?为什么建议设置的连接池大 小要跟 CPU 的核数相关呢?"></a>为什么有的情况下，减少连接数反而会提升吞吐量呢?为什么建议设置的连接池大 小要跟 CPU 的核数相关呢?</h3><p> 每一个连接，服务端都需要创建一个线程去处理它。连接数越多，服务端创建的线程数就会越多。</p>
-<h3 id="CPU-是怎么同时执行远远超过它的核数大小的任务的-时间片。"><a href="#CPU-是怎么同时执行远远超过它的核数大小的任务的-时间片。" class="headerlink" title="CPU 是怎么同时执行远远超过它的核数大小的任务的?时间片。"></a>CPU 是怎么同时执行远远超过它的核数大小的任务的?时间片。</h3><p> 上下文切换。 而 CPU 的核数是有限的，频繁的上下文切换会造成比较大的性能开销。</p>
+<ul>
+<li>执行器先找引擎取 ID=2 这一行。ID 是主键，引擎直接用树搜索找到这一行。如果 ID=2 这一行所在的数据页本来就在内存中，就直接返回给执行器；否则，需要先从磁盘读入内存，然后再返回。</li>
+<li>执行器拿到引擎给的行数据，把这个值加上 1，比如原来是 N，现在就是 N+1，得到新的一行数据，再调用引擎接口写入这行新数据。</li>
+<li>引擎将这行新数据更新到内存中，同时将这个更新操作记录到 redo log 里面，此时 redo log 处于 prepare 状态。然后告知执行器执行完成了，随时可以提交事务。</li>
+<li>执行器生成这个操作的 binlog，并把 binlog 写入磁盘。</li>
+<li>执行器调用引擎的提交事务接口，引擎把刚刚写入的 redo log 改成提交（commit）状态，更新完成。</li>
+</ul>
+<h3 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h3><p>下一次读取相同的页，先判断是不是在缓冲池里面，如果是，就直接读取，不用再 次访问磁盘。</p>
+<p>修改数据的时候，先修改缓冲池里面的页。内存的数据页和磁盘数据不一致的时候， 我们把它叫做脏页。InnoDB 里面有专门的后台线程把 Buffer Pool 的数据写入到磁盘， 每隔一段时间就一次性地把多个修改写入磁盘，这个动作就叫做刷脏。</p>
+<h3 id="redo-log"><a href="#redo-log" class="headerlink" title="redo log"></a>redo log</h3><p>redo log 是固定大小的，比如可以配置为一组 4 个文件，每个文件的大小是 1GB，那么这块区域总共就可以记录 4GB 的操作。从头开始写，写到末尾就又回到开头循环写，如下面这个图所示。</p>
+<p>write pos 和 checkpoint 之间的是区域上还空着的部分，可以用来记录新的操作。如果 write pos 追上 checkpoint，表示区域满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把 checkpoint 推进一下。</p>
+<p>有了 redo log，InnoDB 就可以保证即使数据库发生异常重启，之前提交的记录都不会丢失，这个能力称为 crash-safe。</p>
+<h3 id="binlog"><a href="#binlog" class="headerlink" title="binlog"></a>binlog</h3><p>binlog 以事件的形式记录了所有的 DDL 和 DML 语句(因为它记录的是操作而不是 数据值，属于逻辑日志)，可以用来做主从复制和数据恢复。<br>跟 redo log 不一样，它的文件内容是可以追加的，没有固定大小限制。<br>在开启了 binlog 功能的情况下，我们可以把 binlog 导出成 SQL 语句，把所有的操 作重放一遍，来实现数据的恢复。</p>
+<p>binlog 的另一个功能就是用来实现主从复制，它的原理就是从服务器读取主服务器的binlog，然后执行一遍。</p>
+<h3 id="为什么会有两份日志呢？"><a href="#为什么会有两份日志呢？" class="headerlink" title="为什么会有两份日志呢？"></a>为什么会有两份日志呢？</h3><p>MySQL 自带的引擎是 MyISAM，但是 MyISAM 没有 crash-safe 的能力，binlog 日志只能用于归档。而 InnoDB 是另一个公司以插件形式引入 MySQL 的，既然只依靠 binlog 是没有 crash-safe 能力的，所以 InnoDB 使用另外一套日志系统——也就是 redo log 来实现 crash-safe 能力。</p>
+<ul>
+<li>redo log 是 InnoDB 引擎特有的；</li>
+<li>binlog 是 MySQL 的 Server 层实现的，所有引擎都可以使用。</li>
+<li>redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；binlog 是逻辑日志，记录的是这个语句的原始逻辑，比如“给 ID=2 这一行的 c 字段加 1 ”。redo log 是循环写的，空间固定会用完；binlog 是可以追加写入的。“追加写”是指 binlog 文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</li>
+</ul>
+<p> MySQL 分成三层，跟客户端对接的连接层，真正执行操作的服 务层，和跟硬件打交道的存储引擎层</p>
+<p><img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/58b3dbf5c81447e2a007f35074007cf4" alt="image"></p>
+<h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><ol>
+<li><p>MyISAM(3 个文件)</p>
+<p> 表级锁定限制了读/写的性能，因此在 Web 和数据仓库配置中， 它通常用于只读或以读为主的工作。</p>
+<p> 特点：</p>
+<ul>
+<li>支持表级别的锁(插入和更新会锁表)。不支持事务。 </li>
+<li>拥有较高的插入(insert)和查询(select)速度。</li>
+<li>存储了表的行数(count 速度更快)。</li>
+</ul>
+<p> 怎么快速向数据库插入 100 万条数据?</p>
+<p> 我们有一种先用 MyISAM 插入数据，然后修改存储引擎为 InnoDB 的操作</p>
+</li>
+<li><p>innoDB(2 个文件)</p>
+<p> 特点:</p>
+<ul>
+<li>支持事务，支持外键，因此数据的完整性、一致性更高。</li>
+<li>支持行级别的锁和表级别的锁。 </li>
+<li>支持读写并发，写不阻塞读(MVCC)。 </li>
+<li>特殊的索引存放方式，可以减少 IO，提升查询效率。 </li>
+</ul>
+<p> 适合:经常更新的表，存在并发读写或者有事务处理的业务系统。</p>
+</li>
+<li><p>Memory(1 个文件)</p>
+<ul>
+<li>把数据放在内存里面，读写的速度很快，但是数据库重启或者崩溃，数据会全部消 失。只适合做临时表。</li>
+</ul>
+</li>
+<li><p>CSV(3 个文件)</p>
+<p> 它的表实际上是带有逗号分隔值的文本文件。csv 表允许以 csv 格式导入或转储数据， 以便与读写相同格式的脚本和应用程序交换数据。因为 csv 表没有索引，所以通常在正 常操作期间将数据保存在 innodb 表中，并且只在导入或导出阶段使用 csv 表。</p>
+<p> 特点:</p>
+<blockquote>
+<p>不允许空行，不支持索引。格式通用，可以直接编辑，适合在不同数据库之 间导入导出。</p>
+</blockquote>
+</li>
+<li><p>Archive(2 个文件)</p>
+<p> 这些紧凑的未索引的表用于存储和检索大量很少引用的历史、存档或安全审计信息。</p>
+<p> 特点:</p>
+<blockquote>
+<p>不支持索引，不支持 update delete。</p>
+</blockquote>
 </li>
 </ol>
-<ul>
-<li><p>缓存</p>
-<p>  在应用系统的并发数非常大的情况下，如果没有缓存，会造成两个问题:一方面是 会给数据库带来很大的压力。另一方面，从应用的层面来说，操作数据的速度也会受到 影响。</p>
-<p>  我们可以用第三方的缓存服务来解决这个问题，例如 Redis。</p>
-</li>
-</ul>
-<ul>
-<li><p>主从复制</p>
-<p>  如果单台数据库服务满足不了访问需求，那我们可以做数据库的集群方案。</p>
-</li>
-</ul>
-<pre><code>### 主从复制是怎么实现的呢?更新语句会记录 binlog，它是一种逻辑日志。
-
-&gt; 有了这个 binlog，从服务器会获取主服务器的 binlog 文件，然后解析里面的 SQL 语句，在从服务器上面执行一遍，保持主从的数据一致。
-
-&gt; 这里面涉及到三个线程，连接到 master 获取 binlog，并且解析 binlog 写入中继日 志，这个线程叫做 I/O 线程。
-
-&gt; Master 节点上有一个 log dump 线程，是用来发送 binlog 给 slave 的。 
-
-&gt; 从库的 SQL 线程，是用来读取 relay log，把数据写入到数据库的。
-
-![image](http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/a2d2da7d1d3c4ec4ac4fc36a769c72dd.png)
-
-### 集群的话必然会面临一个问题，就是不同的节点之间数据一致性的问题。如果同时 读写多台数据库节点，怎么让所有的节点数据保持一致?
-
-&gt;这个时候我们需要用到复制技术(replication)，被复制的节点称为 master，复制 的节点称为 slave。slave 本身也可以作为其他节点的数据来源，这个叫做级联复制。
-
-主从复制的方案之后，我们只把数据写入 master 节点，而读的请求可以分担到 slave 节点。我们把这种方案叫做读写分离。读写分离可以一定程度低减轻数据库服务器的访问压力，但是需要特别注意主从数 据一致性的问题。
-
-### slave 的 SQL单线程执行
-slave 的 SQL 却只能单线程排队执行，在主库并发量很大的情况下，同步数据肯定会出现延迟。
-为什么从库上的 SQL Thread 不能并行执行呢?举个例子，主库执行了多条 SQL 语句，首先用户发表了一条评论，然后修改了内容，最后把这条评论删除了。这三条语句 在从库上的执行顺序肯定是不能颠倒的。
-
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">insert into user_comments (10000009,&#39;nice&#39;);
-update user_comments set content &#x3D;&#39;very good&#39; where id &#x3D;10000009; 
-delete from user_comments where id &#x3D;10000009;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-<h1 id="如何解决不同的节点之间数据一致性的问题。"><a href="#如何解决不同的节点之间数据一致性的问题。" class="headerlink" title="如何解决不同的节点之间数据一致性的问题。"></a>如何解决不同的节点之间数据一致性的问题。</h1><h2 id="异步复制"><a href="#异步复制" class="headerlink" title="异步复制"></a>异步复制</h2><p>在主从复制的过程中，MySQL 默认是异步复制的。也就是说， 对于主节点来说，写入 binlog，事务结束，就返回给客户端了。对于 slave 来说，接收 到 binlog，就完事儿了，master 不关心 slave 的数据有没有写入成功。</p>
-<h2 id="全同步复制"><a href="#全同步复制" class="headerlink" title="全同步复制"></a>全同步复制</h2><p>如果要减少延迟，是不是可以等待全部从库的事务执行完毕，才返回给客户端呢? 这样的方式叫做全同步复制。从库写完数据，主库才返会给客户端。</p>
-<p>事务执行的时间会变长，它会导致 master 节点性能下降。</p>
-<h2 id="半同步复制"><a href="#半同步复制" class="headerlink" title="半同步复制"></a>半同步复制</h2><p>主库在执行完客户端提交的事务后不是立刻返回给客户端，而是等待至少一个从库<br>接收到 binlog 并写到 relay log 中才返回给客户端。master 不会等待很长的时间，但是 返回给客户端的时候，数据就即将写入成功了，因为它只剩最后一步了:就是读取 relay log，写入从库。</p>
-<p>如果我们要在数据库里面用半同步复制，必须安装一个插件，这个是谷歌的一位工 程师贡献的。这个插件在 mysql 的插件目录下已经有提供:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">cd &#x2F;usr&#x2F;lib64&#x2F;mysql&#x2F;plugin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>主库和从库是不同的插件，安装之后需要启用:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">-- 主库执行
-INSTALL PLUGIN rpl_semi_sync_master SONAME &#39;semisync_master.so&#39;;
-set global rpl_semi_sync_master_enabled&#x3D;1; show variables like &#39;%semi_sync%&#39;;
-
--- 从库执行
-INSTALL PLUGIN rpl_semi_sync_slave SONAME &#39;semisync_slave.so&#39;; set global rpl_semi_sync_slave_enabled&#x3D;1;
-show global variables like &#39;%semi%&#39;;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>异步复制，半同步复制提高了数据的安全性，同时它也造成了一定程度的延 迟，它需要等待一个 slave 写入中继日志，这里多了一个网络交互的过程，所以，半同步 复制最好在低延时的网络中使用。</p>
-<h2 id="多库并行复制"><a href="#多库并行复制" class="headerlink" title="多库并行复制"></a>多库并行复制</h2><p>如果 3 条语句是在三个数据库执行，操作各自的 数据库，是不是肯定不会产生并发的问题呢?执行的顺序也没有要求。当然是，所以如 果是操作三个数据库，这三个数据库的从库的 SQL 线程可以并发执行。这是 MySQL 5.6 版本里面支持的多库并行复制。</p>
-<p>但是在大部分的情况下，我们都是单库多表的情况，在一个数据库里面怎么实现并 行复制呢?或者说，我们知道，数据库本身就是支持多个事务同时操作的</p>
-<p>为什么这些 事务在主库上面可以并行执行，却不会出现问题呢?</p>
-<p>因为他们本身就是互相不干扰的，比如这些事务是操作不同的表，或者操作不同的 行，不存在资源的竞争和数据的干扰。那在主库上并行执行的事务，在从库上肯定也是 可以并行执行。</p>
-<h2 id="异步复制之-GTID-复制"><a href="#异步复制之-GTID-复制" class="headerlink" title="异步复制之 GTID 复制"></a>异步复制之 GTID 复制</h2><p>我们可以把那些在主库上并行执行的事务，分为一个组，并且给他们编号， 这一个组的事务在从库上面也可以并行执行。这个编号，我们把它叫做 GTID(Global Transaction Identifiers)，这种主从复制的方式，我们把它叫做基于 GTID 的复制。</p>
-<p>如果我们要使用 GTID 复制，我们可以通过修改配置参数打开它，默认是关闭的:</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show global variables like &#39;gtid_mode&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>无论是优化 master 和 slave 的连接方式，还是让从库可以并行执行 SQL，都是从数据库的层面去解决主从复制延迟的问题。</p>
-<h1 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h1><p>垂直分库，减少并发压力。水平分表，解决存储瓶颈。</p>
-<p>垂直分库的做法，把一个数据库按照业务拆分成不同的数据库。</p>
-<h1 id="慢查询日志-slow-query-log"><a href="#慢查询日志-slow-query-log" class="headerlink" title="慢查询日志 slow query log"></a>慢查询日志 slow query log</h1><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show variables like &#39;slow_query%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>除了这个开关，还有一个参数，控制执行超过多长时间的 SQL 才记录到慢日志，默 认是 10 秒。</p>
-<pre class="line-numbers language-none"><code class="language-none">set @@global.slow_query_log&#x3D;1; 
--- 1 开启，0 关闭，重启后失效
-set @@global.long_query_time&#x3D;3;
- -- mysql 默认的慢查询时间是 10 秒，另开一个窗口后才会查到最新值 ​
-show variables like &#39;%long_query%&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>修改配置文件 my.cnf。</p>
-<pre class="line-numbers language-none"><code class="language-none">slow_query_log &#x3D; ON
-long_query_time&#x3D;2
-slow_query_log_file &#x3D;&#x2F;var&#x2F;lib&#x2F;mysql&#x2F;localhost-slow.log<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>查询用时最多的20条数据</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">mysqldumpslow -s t -t 20 -g &#39;select&#39; &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;localhost-slow.log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h1 id="EXPLAIN-执行计划-官网地址"><a href="#EXPLAIN-执行计划-官网地址" class="headerlink" title="EXPLAIN 执行计划 官网地址"></a>EXPLAIN 执行计划 <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/explain-output.html">官网地址</a></h1><ul>
-<li><p>id</p>
-<p>  id 值不同的时候，先查询 id 值大的(先大后小)</p>
-<p>  id 值相同时，表的查询顺序是从上往下顺序执行。</p>
-</li>
-<li><p>select_type</p>
-<p>  <img src="http://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/file/a365a5fc8679468db59b6040f14b4371" alt="image"></p>
-<p>  SIMPLE:简单查询，不包含子查询，不包含关联查询 union。</p>
-<p>  PRIMARY：子查询 SQL 语句中的主查询，也就是最外面的那层查询。</p>
-<p>  SUBQUERY：子查询中所有的内层查询都是 SUBQUERY 类型的。</p>
-<p>  DERIVED：衍生查询，表示在得到最终查询结果之前会用到临时表。</p>
-<p>  UNION：用到了 UNION 查询。</p>
-<p>  UNION RESULT：主要是显示哪些表之间存在 UNION 查询。&lt;union2,3&gt;代表 id=2 和 id=3 的查询 存在 UNION。</p>
-</li>
-</ul>
-<ul>
-<li><p>table</p>
-<p>  查询所用的多的表</p>
-</li>
-<li><p>type</p>
-<p>  上面的最好，越往下越差。system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; all</p>
-<p>  以上访问类型除了 all，都能用到索引。</p>
-<p>  system：system 是 const 的一种特例，只有一行满足条件。例如:只有一条数据的系统表。</p>
-  <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">EXPLAIN SELECT * FROM mysql.proxies_priv;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>  const：主键索引或者唯一索引，只能查到一条数据的 SQL。</p>
-  <pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">DROP TABLE IF EXISTS single_data;
-CREATE TABLE single_data(
-    id int(3) PRIMARY KEY,
-    content varchar(20) 
-);
-insert into single_data values(1,&#39;a&#39;);
-EXPLAIN SELECT * FROM single_data a where id &#x3D; 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  eq_ref：通常出现在多表的 join 查询，表示对于前表的每一个结果,，都只能匹配到后表的 一行结果。一般是唯一性索引的查询(UNIQUE 或 PRIMARY KEY)。eq_ref 是除 const 之外最好的访问类型。</p>
-</li>
-</ul>
-<pre><code>以上三种 system，const，eq_ref，都是可遇而不可求的，基本上很难优化到这个 状态。
-
-ref：查询用到了非唯一性索引，或者关联操作只使用了索引的最左前缀。
-
-range：索引范围扫描。如果where后面是 betweenand 或 &lt;或 &gt; 或 &gt;= 或 &lt;=或in这些，type类型就为 range。
-
-不走索引一定是全表扫描(ALL)，所以先加上普通索引。
-
-Index：Full Index Scan，查询全部索引中的数据(比不走索引要快)。
-
-ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是 ALL。代表全表扫描。
-
-一般来说，需要保证查询至少达到 range 级别，最好能达到 ref。 ALL(全表扫描)和 index(查询全部索引)都是需要优化的。
-</code></pre>
-<ul>
-<li><p>possible_keys</p>
-<p> 可能用到的索引和实际用到的索引。如果是 NULL 就代表没有用到索引。</p>
-</li>
-<li><p>key</p>
-<p>  实际用到的索引</p>
-</li>
-<li><p>key_len</p>
-<p>  索引的长度(使用的字节数)。跟索引字段的类型、长度有关。</p>
-</li>
-<li><p>ref</p>
-<p>  使用哪个列或者常数和索引一起从表中筛选数据。</p>
-</li>
-<li><p>rows</p>
-<p>  MySQL 认为扫描多少行才能返回请求的数据，是一个预估值。一般来说行数越少越好。</p>
-</li>
-<li><p>Extra</p>
-<p>  执行计划给出的额外的信息说明。</p>
-<ul>
-<li><p>using index：用到了覆盖索引，不需要回表。</p>
-</li>
-<li><p>using where：使用了 where 过滤，表示存储引擎返回的记录并不是所有的都满足查询条件，需要 在 server 层进行过滤(跟是否使用索引没有关系)。</p>
-</li>
-<li><p>Using index condition(索引条件下推)：索引下推</p>
-</li>
-<li><p>using filesort：不能使用索引来排序，用到了额外的排序(跟磁盘或文件没有关系)。需要优化。</p>
-</li>
-<li><p>using temporary：用到了临时表。例如(以下不是全部的情况)</p>
-<p>  distinct 非索引列</p>
-  <pre class="line-numbers language-none"><code class="language-none">EXPLAIN select DISTINCT(tid) from test;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-</li>
-</ul>
-<p>模拟优化器执行 SQL 查询语句的过程，来知道 MySQL 是怎么处理一条 SQL 语句的。 通过这种方式我们可以分析语句或者表的性能瓶颈。分析出问题之后，就是对 SQL 语句的具体优化。</p>
-<h2 id="SQL与索引优化"><a href="#SQL与索引优化" class="headerlink" title="SQL与索引优化"></a>SQL与索引优化</h2><p>当我们的 SQL 语句比较复杂，有多个关联和子查询的时候，就要分析 SQL 语句有没 有改写的方法。</p>
-<h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><p>为不同的业务表选择不同的存储引擎，例如:查询插入操作多的业务表，用 MyISAM。 临时数据用 Memeroy。常规的并发大更新多的表用 InnoDB。</p>
-<h2 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h2><ul>
-<li><p>INT 有 8 种类型，不同的类型的最大存储范围是不一样的。</p>
-<p>  性别?用 TINYINT，因为 ENUM 也是整型存储。</p>
-</li>
-<li><p>变长情况下，varchar 更节省空间，但是对于 varchar 字段，需要一个字节来记录长度。</p>
-<p>  固定长度的用 char，不要用 varchar。</p>
-</li>
-<li><p>非空：</p>
-<p>非空字段尽量定义成 NOT NULL，提供默认值，或者使用特殊值、空串代替 null。NULL 类型的存储、优化、使用都会存在问题。</p>
-</li>
-<li><p>不要用外键、触发器、视图：</p>
-<p>  降低了可读性; 影响数据库性能，应该把把计算的事情交给程序，数据库专心做存储; 数据的完整性应该在程序中检查。</p>
-</li>
-<li><p>大文件存储：</p>
-<p>不要用数据库存储图片(比如 base64 编码)或者大文件;把文件放在 NAS 上，数据库只需要存储 URI(相对路径)，在应用中配置 NAS 服 务器地址。</p>
-</li>
-<li><p>表拆分：</p>
-</li>
-<li><p>将不常用的字段拆分出去，避免列数过多和数据量过大。</p>
-<p>  比如在业务系统中，要记录所有接收和发送的消息，这个消息是 XML 格式的，用 blob 或者 text 存储，用来追踪和判断重复，可以建立一张表专门用来存储报文。</p>
-</li>
+<h2 id="如何选择存储引擎"><a href="#如何选择存储引擎" class="headerlink" title="如何选择存储引擎?"></a>如何选择存储引擎?</h2><ul>
+<li>如果对数据一致性要求比较高，需要事务支持，可以选择 InnoDB。</li>
+<li>如果数据查询多更新少，对查询性能要求比较高，可以选择 MyISAM。 </li>
+<li>如果需要一个用于查询的临时表，可以选择 Memory。 </li>
+<li>如果所有的存储引擎都不能满足你的需求，并且技术能力足够，可以根据官网内部<br>  手册用 C 语言开发一个存储引擎:<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/internals/en/custom-engine.html">官网地址</a></li>
 </ul>
 
                 
@@ -635,7 +542,7 @@ ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/9.xing-neng-you-hua/">https://alfredhua.com/2023/04/24/4.shu-ju-ku/mysql/9.xing-neng-you-hua/</a>
+                    <a href="https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/5.sql-de-zhi-xing-liu-cheng/">https://alfredhua.com/2023/08/27/4.shu-ju-ku/mysql/5.sql-de-zhi-xing-liu-cheng/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,7 +579,11 @@ ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -846,13 +757,13 @@ ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/8.mysql-suo/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/4.mysql-suo-yin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="MySQL索引">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MySQL索引</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -863,15 +774,27 @@ ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -883,13 +806,13 @@ ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/04/24/4.shu-ju-ku/mysql/readme/">
+                <a href="/2023/08/27/4.shu-ju-ku/mysql/6.mysql-de-cun-chu-jie-gou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MySQL存储结构">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">MySQL存储结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -900,15 +823,27 @@ ALL：Full Table Scan，如果没有索引或者没有用到索引，type 就是
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            凌云
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
                 </div>
                 
             </div>

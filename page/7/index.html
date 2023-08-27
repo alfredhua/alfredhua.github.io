@@ -248,7 +248,7 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/5.aop-yuan-ma-fen-xi/">
+                    <a href="/2023/04/24/6.huan-cun/redis/6.shu-ju-hui-fu/">
                         <div class="card-image">
                             
                             
@@ -261,7 +261,8 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Spring AOP 源码分析AOP 是 OOP 的延续，是 Aspect Oriented Programming 的缩写，意思是面向切面编程。可以通过预 编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术
+                                RDB和AOF两种持久化机制的介绍RDB持久化机制，对redis中的数据执行周期性的持久化
+AOF机制对每条写入命令作为日志，以append-only的模式写入一个日志文件中，在redis重启的时候，可以通过回放AOF日志中的写入指令来重新
                             
                         </div>
                         <div class="publish-info">
@@ -285,7 +286,7 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/7.shi-wu/">
+                    <a href="/2023/04/24/6.huan-cun/redis/7.shao-bing-mo-shi/">
                         <div class="card-image">
                             
                             
@@ -298,9 +299,11 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基础配置 &lt;aop:aspectj-autoproxy proxy-target-class="true"/>
+                                哨兵模式哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。
 
- &lt;bean id="transactionManager" class="org.springframework
+这里的哨兵有两个作用
+
+通过发送命令，
                             
                         </div>
                         <div class="publish-info">
@@ -324,7 +327,7 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/6.mvc/">
+                    <a href="/2023/04/24/6.huan-cun/redis/1.an-zhuang/">
                         <div class="card-image">
                             
                             
@@ -337,10 +340,10 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                MVC首先引用《Spring in Action》上 的一张图来了解 Spring MVC 的核心组件和大致处理流程：
-从上图中看到
-
-DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
+                                Linuxwget http://download.redis.io/releases/redis-2.8.17.tar.gz
+tar xzf redis-2.8.17.tar.gz
+cd redis-2.8.17
+./redis-serv
                             
                         </div>
                         <div class="publish-info">
@@ -364,7 +367,7 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/3.ioc-de-zhu-jie-fang-shi-yuan-ma-jie-xi/">
+                    <a href="/2023/04/24/6.huan-cun/redis/10.ji-qun/">
                         <div class="card-image">
                             
                             
@@ -377,7 +380,9 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                定位 Bean 扫描路径在 Spring 中 管 理 注 解 Bean 定 义 的 容 器 有 两 个 : AnnotationConfigApplicationContext 和 AnnotationConfigWebApplicatio
+                                主从复制redis 主从复制的核心原理
+当启动一个 slave node 的时候，它会发送一个 PSYNC 命令给 master node。
+如果这是 slave node 初次连接到 master node，那么会触发一次 full re
                             
                         </div>
                         <div class="publish-info">
@@ -401,7 +406,7 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/2.ioc-de-xml-fang-shi-yuan-ma-fen-xi/">
+                    <a href="/2023/04/24/6.huan-cun/redis/11.lock/">
                         <div class="card-image">
                             
                             
@@ -414,7 +419,13 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                IOC源码分析IOC(Inversion of Control)控制反转：所谓控制反转，就是把原先我们代码里面需要实现的对象创 建、依赖的代码，反转给容器来帮忙实现。那么必然的我们需要创建一个容器，同时需要一种描述来让 容器知道需要创建的对
+                                Redis实现分布式锁Redis实现分布式锁利用 SETNX 和 SETEX
+基本命令主要有：
+
+SETNX(SET If Not Exists)：
+
+当且仅当 Key 不存在时，则可以设置，否则不做任何动作。
+当且仅当 key 不存在，将
                             
                         </div>
                         <div class="publish-info">
@@ -438,7 +449,7 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/4.di-yuan-ma-jie-xi/">
+                    <a href="/2023/04/24/6.huan-cun/redis/2.shu-ju-lei-xing/">
                         <div class="card-image">
                             
                             
@@ -451,7 +462,17 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                DI源码解析依赖注入发生的时间当 Spring IOC 容器完成了 Bean 定义资源的定位、载入和解析注册以后，IOC 容器中已经管理类 Bean 定义的相关数据，但是此时 IOC 容器还没有对所管理的 Bean 进行依赖注入，依赖注入在
+                                string使用
+这是最基本的类型了，没啥可说的，就是普通的set和get，做简单的kv缓存
+
+应用场景
+redis锁
+字符串记录
+
+原理存储数据三种类型：
+
+int: 长度 1 num类型。set int_key "111"
+输入：obj
                             
                         </div>
                         <div class="publish-info">
@@ -475,7 +496,7 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring/1.ji-ben-jiao-cheng/">
+                    <a href="/2023/04/24/6.huan-cun/redis/3.ying-yong-chang-jing/">
                         <div class="card-image">
                             
                             
@@ -488,8 +509,8 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基本教程官网地址
-
+                                高性能假设这么个场景，你有个操作，一个请求过来，吭哧吭哧你各种乱七八糟操作mysql，半天查出来一个结果，耗时600ms。但是这个结果可能接下来几个小时都不会变了，或者变了也可以不用立即反馈给用户。那么此时咋办？
+缓存啊，折腾600ms查出
                             
                         </div>
                         <div class="publish-info">
@@ -513,7 +534,7 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring-cloud/4.config/">
+                    <a href="/2023/04/24/6.huan-cun/guava/readme/">
                         <div class="card-image">
                             
                             
@@ -525,8 +546,6 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
-                            
-                                为什么要统一管理微服务配置对于Spring Boot应用，我们可以将配置内容写入application.yml，设置多个profile，也可以用多个application-&#123;profile&#125;.properties文件配置
                             
                         </div>
                         <div class="publish-info">
@@ -550,7 +569,7 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/5.kuang-jia/spring-cloud/5.hystrix/">
+                    <a href="/2023/04/24/6.huan-cun/readme/">
                         <div class="card-image">
                             
                             
@@ -563,8 +582,14 @@ DispatcherServlet 是 SpringMVC 中的前端控制器(Front Controll
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                引入jar包
-compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.3.RELEASE
+                                
+缓存
+redis
+guava
+
+
+
+
                             
                         </div>
                         <div class="publish-info">

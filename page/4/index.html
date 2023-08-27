@@ -248,7 +248,7 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/4.xiao-xi-ke-kao-xing-tou-di/">
+                    <a href="/2023/04/24/8.fen-bu-shi/rpc/dubbo/readme/">
                         <div class="card-image">
                             
                             
@@ -261,176 +261,13 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                消息可靠性投递消息落库，对消息状态打标。+轮训状态0，未处理，1：已经处理，2：失败（需要补偿机制）。
-
-
-将业务订单数据和生成的Message进行持久化操作
-将Message发送到Broker服务器中
-通过RabbitMQ的Confirm
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
+dubbo
+应用
+SPI
 
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/5.chong-fu-xiao-fei/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                重复消费问题ID主键基于数据库的唯一键来保证重复数据不会重复插入多条，进行消息入库。主键唯一，做异常处理机制。
 
-比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update一下好吧。
-
-Redis使用redis做
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/6.xiao-xi-diu-shi-wen-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                消息丢失问题MQ数据丢失来源于三个地方：
-
-生产者，数据丢失。
-rabbitmq数据丢失。
-消费者数据丢失。
-
-1.生产者弄丢了数据生产者将数据发送到rabbitmq的时候，可能数据就在半路给搞丢了，因为网络啥的问题，都有可能。
-此时可以选
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/7.gao-ke-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                高可用rabbitmq有三种模式：单机模式，普通集群模式，镜像集群模式
-单机模式就是demo级别的，一般就是你本地启动了玩玩儿的，没人生产用单机模式。
-普通集群模式意思就是在多台机器上启动多个rabbitmq实例，每个机器启动一个。但是你创
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/1.an-zhuang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                mac:brew install rabbitmq
-centos :yum install rabbitmq
-教程：https://www.rabbitmq.com/download.html
-默认账户：guest默认密码：guest
 
                             
                         </div>
@@ -455,7 +292,7 @@ centos :yum install rabbitmq
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/10.ru-he-she-ji-yi-ge-mq/">
+                    <a href="/2023/04/24/8.fen-bu-shi/rpc/grpc/1.protobuf-yuan-li/">
                         <div class="card-image">
                             
                             
@@ -468,8 +305,9 @@ centos :yum install rabbitmq
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                如何设计一个MQ
-伸缩性。：设计个分布式的系统呗，参照一下kafka的设计理念，broker -&gt; topic -&gt; partition，每个partition放一个机器，就存一部分数据。如果现在资源不够了，简单啊，给topic
+                                public static void main(String[] args) &#123;
+    UserProtos.User user=UserProtos.User.newBuilder().
+        setAge(300)
                             
                         </div>
                         <div class="publish-info">
@@ -493,7 +331,7 @@ centos :yum install rabbitmq
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/7.mq/rabbitmq/2.xiao-xi-mo-shi/">
+                    <a href="/2023/04/24/8.fen-bu-shi/nacos/readme/">
                         <div class="card-image">
                             
                             
@@ -506,8 +344,8 @@ centos :yum install rabbitmq
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                简单模式一个生产者P发送消息到队列Q,一个消费者C接收
-https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/u=3536793445,2882105203&amp;fm=26
+                                nacos
+
                             
                         </div>
                         <div class="publish-info">
@@ -531,7 +369,216 @@ https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/u=3536793445,28821052
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/7.mq/readme/">
+                    <a href="/2023/04/24/8.fen-bu-shi/rpc/1.xu-lie-hua/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                XML 序列化XML 序列化的好处在于可读性好，方便阅读和调试。但是序列化以后的字节码文件比较大， 而且效率不高，适用于对性能不高，而且 QPS 较低的企业级内部系统之间的数据交换的场景， 同时 XML 又具有语言无关性，所以还可以用于异构
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/8.fen-bu-shi/rpc/readme/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+rpc
+序列化
+dubbo
+grpc
+
+
+
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/8.fen-bu-shi/readme/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+缓存
+zookeeper
+rpc
+nacos
+
+
+
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/8.xiao-xi-ji-ya/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                生产消息积压解决思路：
+
+先修复consumer的问题，确保其恢复消费速度，然后将现有cnosumer都停掉
+新建一个topic，partition是原来的10倍，临时建立好原先10倍或者20倍的queue数量
+然后写一个临时的分发数据的c
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/9.si-xin-dui-lie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                死信队列介绍
+死信队列：DLX，dead-letter-exchange
+利用DLX，当消息在一个队列中变成死信 (dead message) 之后，它能被重新publish到另一个Exchange，这个Exchange就是DLX
+
+消息变
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/04/24/7.mq/rabbitmq/readme/">
                         <div class="card-image">
                             
                             
@@ -546,55 +593,20 @@ https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/u=3536793445,28821052
                             
                                 
 MQ
-rabbitmq
-kafka
+基本教程
+消息模式
+基本操作
+消息的可靠性投递
+重复消费
+消息丢失问题
+高可用
+消息积压
+死信队列
+如何设计一个MQ
 
 
 
 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/04/24/7.mq/kafka/1.an-zhuang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
-                            
-                            <span class="card-title"></span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                version: '3'
-services:
-  zookeeper:
-    image: wurstmeister/zookeeper
-    container_name: zookeeper
-    volumes:
-      -
                             
                         </div>
                         <div class="publish-info">

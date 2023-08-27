@@ -407,7 +407,7 @@
               <h1 class="description center-align post-title">接口隔离原则</h1>
             </div>
             <div id="articleContent">
-                <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><blockquote>
+                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
 <p>接口隔离原则(Interface Segregation Principle, ISP)是指用多个专门的接口，而不使用单一的总接口，客户端不应该依赖它不需要的接口。</p>
 </blockquote>
 <p>这个原则指导我们在设计接口时 应当注意一下几点:</p>
@@ -417,7 +417,7 @@
 <li>尽量细化接口，接口中的方法尽量少(不是越少越好，一定要适度)。</li>
 </ol>
 <p>接口隔离原则符合我们常说的高内聚低耦合的设计思想，从而使得类具有很好的 <strong>可读性、可扩展性和可维护性</strong> 。我们在设计接口的时候，要多花时间去思考，要考虑业务模型，包括以后有可能发生变更的地方还要做一些预判。所以，对于抽象，对业务模型的理解 是非常重要的。</p>
-<h1 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h1><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IAnimal</span> <span class="token punctuation">&#123;</span> 
+<h2 id="DEMO"><a href="#DEMO" class="headerlink" title="DEMO"></a>DEMO</h2><pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IAnimal</span> <span class="token punctuation">&#123;</span> 
     <span class="token keyword">void</span> <span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">fly</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">void</span> <span class="token function">swim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
