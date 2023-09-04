@@ -248,35 +248,49 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/06/14/10.suan-fa/shu-zu/">
+                    <a href="/2023/08/27/5.kuang-jia/mybatis/1.jdbc-lian-jie-liu-cheng/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="JDBC连接数据库">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">JDBC连接数据库</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                uuid: 476fa102-759e-338f-9997-aa17266e47e0uuid: c23404f0-972a-18f9-c882-e59b26d9e16duuid: 3dfd18c8-0fd5-0564-2735-b1720e
+                                JDBC 连接数据库
+注册驱动Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+打开连接，通过DriverManager获取一个连接conn &#x3D; DriverManager.get
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyBatis/" class="post-category">
+                                    MyBatis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MyBatis/">
+                            <span class="chip bg-color">MyBatis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -285,37 +299,56 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/9.fu-wu-qi/1.centos-xia-ruan-jian-an-zhuang/">
+                    <a href="/2023/08/27/5.kuang-jia/mybatis/2.yuan-ma-jie-du/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MyBatis源码解读">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">MyBatis源码解读</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                JDK：下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-解压，配置环境变量即可。
-centos：查看端口开放
+                                
+mybatis的核心模块
+
+
+
+注解注入方式（入口）这里用的是Hikari连接，其它连接方式道理一样
+
+ @Bean(name = "dataSource")
+ public DataSource dataSource() &#123;
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyBatis/" class="post-category">
+                                    MyBatis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MyBatis/">
+                            <span class="chip bg-color">MyBatis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -324,41 +357,50 @@ centos：查看端口开放
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/9.fu-wu-qi/readme/">
+                    <a href="/2023/08/27/5.kuang-jia/mybatis/3.shou-xie-mybatis/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="手写MyBatis">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">手写MyBatis</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-centos
-centos下软件安装
+                                Mybatis中的关键类
+入口: SqlSessionFactoryBuild().build().openSqlSession().getMapper(BlogMapper.class);
 
-
-
-
+package com.hbatis.v2.s
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyBatis/" class="post-category">
+                                    MyBatis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/MyBatis/">
+                            <span class="chip bg-color">MyBatis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -367,38 +409,49 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/fen-bu-shi-shi-wu/seata/">
+                    <a href="/2023/08/27/6.huan-cun/redis/1.an-zhuang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="分布式事务-码农阿华">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis安装">
                             
-                            <span class="card-title">分布式事务-码农阿华</span>
+                            <span class="card-title">Redis安装</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                事务严格意义上的事务实现应该是具备原子性、一致性、隔离性和持久性，简称 ACID。
-
-原子性（Atomicity），可以理解为一个事务内的所有操作要么都执行，要么都不执行。
-一致性（Consistency），可以理解为数据是满足完整性约束的
+                                Linuxwget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-2.8.17.tar.gz
+tar xzf redis-2.8.17.tar.gz
+cd redis
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -407,36 +460,49 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/3.shi-yong-chang-jing/">
+                    <a href="/2023/08/27/6.huan-cun/redis/10.ji-qun/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Redis集群">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">Redis集群</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-分布式协调 ：这个其实是zk很经典的一个用法，简单来说，就好比，你A系统发送个请求到mq，然后B消息消费之后处理了。那A系统如何知道B系统的处理结果？用zk就可以实现分布式系统之间的协调工作。A系统发送请求之后可以在zk上对某个节点的值注
+                                主从复制redis 主从复制的核心原理
+当启动一个 slave node 的时候，它会发送一个 PSYNC 命令给 master node。
+如果这是 slave node 初次连接到 master node，那么会触发一次 full re
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -445,35 +511,53 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/4.fen-bu-shi-suo/">
+                    <a href="/2023/08/27/6.huan-cun/redis/11.lock/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Redis实现分布式锁">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">Redis实现分布式锁</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                用 zookeeper 来实现分布式锁结合我们前面对 zookeeper 特性的分析和理解，我们可以 利用 zookeeper 节点的特性来实现独占锁，就是同级节点 的唯一性，多个进程往 zookeeper 的指定节点下创建一个 相同名称的
+                                Redis实现分布式锁Redis实现分布式锁利用 SETNX 和 SETEX
+基本命令主要有：
+
+SETNX(SET If Not Exists)：
+
+当且仅当 Key 不存在时，则可以设置，否则不做任何动作。
+当且仅当 key 不存在，将
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -482,36 +566,56 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/5.fen-bu-shi-yi-zhi-xing/">
+                    <a href="/2023/08/27/6.huan-cun/redis/2.shu-ju-lei-xing/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis数据类型">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">Redis数据类型</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-通常 zookeeper 是由 2n+1 台 server 组成，每个 server 都知道彼此的存在。每个 server 都 维护的内存状态镜像以及持久化存储的事务日志和快照。对于 2n+1 台 server，只要有 n+1 台(大多数
+                                string使用
+这是最基本的类型了，没啥可说的，就是普通的set和get，做简单的kv缓存
+
+应用场景
+redis锁
+字符串记录
+
+原理存储数据三种类型：
+
+int: 长度 1 num类型。set int_key &quot;111&qu
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -520,41 +624,48 @@ centos下软件安装
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/6.ji-qun-da-jian/">
+                    <a href="/2023/08/27/6.huan-cun/redis/3.ying-yong-chang-jing/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Redis应用场景">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">Redis应用场景</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                将俩个文件放在同一目录下，执行docker-compose up -d 即可
-.env
-ZK_MASTER_DIR&#x3D;.&#x2F;master
-
-ZK_SLAVE1_DIR&#x3D;.&#x2F;slave1
-
-ZK_SLAVE
+                                高性能假设这么个场景，你有个操作，一个请求过来，吭哧吭哧你各种乱七八糟操作mysql，半天查出来一个结果，耗时600ms。但是这个结果可能接下来几个小时都不会变了，或者变了也可以不用立即反馈给用户。那么此时咋办？
+缓存啊，折腾600ms查出
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -563,46 +674,54 @@ ZK_SLAVE
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/04/24/8.fen-bu-shi/zookeeper/readme/">
+                    <a href="/2023/08/27/6.huan-cun/redis/4.dan-xian-cheng-mo-xing/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Redis的单线程模型">
                             
-                            <span class="card-title"></span>
+                            <span class="card-title">Redis的单线程模型</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-zookeeper
-基本概念
-操作
-使用场景
-分布式锁
-分布式一致性
-集群搭建
+                                单线程模型为啥redis单线程模型也能效率这么高？
+纯内存操作
+核心是基于非阻塞的IO多路复用机制
+单线程反而避免了多线程的频繁上下文切换问题
 
 
-
-
+题外话：
+我们现在要仔细的说一说I/O多路复用机制，因为这个说法实在是太通俗了，通俗到一般人
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-04-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-user fa-fw"></i>
-                                凌云
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
                                 
                             </span>
                         </div>
                     </div>
 
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Redis/">
+                            <span class="chip bg-color">Redis</span>
+                        </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -625,7 +744,7 @@ zookeeper
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">8 / 24</div>
+            <div class="center-align b-text-gray">8 / 23</div>
         </div>
         <div class="col s6 m4 l4">
             

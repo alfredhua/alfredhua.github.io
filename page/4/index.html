@@ -248,33 +248,39 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-cloud/5.hystrix/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/6.xiao-xi-diu-shi-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Spring Cloud 之 hystrix">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="RabbitMq消息丢失问题">
                             
-                            <span class="card-title">Spring Cloud 之 hystrix</span>
+                            <span class="card-title">RabbitMq消息丢失问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                引入jar包
-compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.3.RELEASE
+                                消息丢失问题MQ数据丢失来源于三个地方：
+
+生产者，数据丢失。
+rabbitmq数据丢失。
+消费者数据丢失。
+
+1.生产者弄丢了数据生产者将数据发送到rabbitmq的时候，可能数据就在半路给搞丢了，因为网络啥的问题，都有可能。
+此时可以选
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Cloud/" class="post-category">
-                                    Spring Cloud
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -285,8 +291,8 @@ compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Cloud/">
-                            <span class="chip bg-color">Spring Cloud</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -298,34 +304,36 @@ compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/mybatis/1.jdbc-lian-jie-liu-cheng/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/1.an-zhuang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="JDBC连接数据库">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="RabbitMq安装">
                             
-                            <span class="card-title">JDBC连接数据库</span>
+                            <span class="card-title">RabbitMq安装</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                JDBC 连接数据库
-注册驱动Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
-打开连接，通过DriverManager获取一个连接conn &#x3D; DriverManager.get
+                                下载地址https://www.rabbitmq.com/download.html
+macbrew install rabbitmq
+centosyum install rabbitmq
+默认信息默认账户：guest默认密码：guest
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/MyBatis/" class="post-category">
-                                    MyBatis
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -336,8 +344,8 @@ compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/MyBatis/">
-                            <span class="chip bg-color">MyBatis</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -349,13 +357,13 @@ compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/mybatis/2.yuan-ma-jie-du/">
+                    <a href="/2023/08/30/7.mq/kafka/2.kafka/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="MyBatis源码解读">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                             
-                            <span class="card-title">MyBatis源码解读</span>
+                            <span class="card-title"></span>
                         </div>
                     </a>
 
@@ -363,27 +371,103 @@ compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-
                         <div class="summary block-with-text">
                             
                                 
-mybatis的核心模块
+title: Kafka介绍date: 2023-08-30keywords:  Kafka介绍description:  Kafka介绍top: falsetags:
+
+ Kafkacategories:
+ Kafka
 
 
-
-注解注入方式（入口）这里用的是Hikari连接，其它连接方式道理一样
-
- @Bean(name = "dataSource")
- public DataSource dataSource() &#123;
-
+什么是kaf
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/08/30/7.mq/kafka/1.an-zhuang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                            
+                            <span class="card-title"></span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+title: KAFKA docker 安装教程date: 2023-08-30keywords:  KAFKA docker 安装教程description:  KAFKA docker 安装教程top: falsetags:
+
+ ka
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                凌云
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2023/08/30/7.mq/rabbitmq/10.ru-he-she-ji-yi-ge-mq/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="如何设计一个 MQ">
+                            
+                            <span class="card-title">如何设计一个 MQ</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                如何设计一个MQ
+伸缩性。：设计个分布式的系统呗，参照一下kafka的设计理念，broker -&gt; topic -&gt; partition，每个partition放一个机器，就存一部分数据。如果现在资源不够了，简单啊，给topic
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/MyBatis/" class="post-category">
-                                    MyBatis
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -394,8 +478,8 @@ mybatis的核心模块
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/MyBatis/">
-                            <span class="chip bg-color">MyBatis</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -407,35 +491,37 @@ mybatis的核心模块
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/mybatis/3.shou-xie-mybatis/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/4.xiao-xi-ke-kao-xing-tou-di/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="手写MyBatis">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="RabbitMQ消息可靠性投递">
                             
-                            <span class="card-title">手写MyBatis</span>
+                            <span class="card-title">RabbitMQ消息可靠性投递</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Mybatis中的关键类
-入口: SqlSessionFactoryBuild().build().openSqlSession().getMapper(BlogMapper.class);
+                                消息落库，对消息状态打标。+轮训状态0，未处理，1：已经处理，2：失败（需要补偿机制）。
 
-package com.hbatis.v2.s
+
+将业务订单数据和生成的Message进行持久化操作
+将Message发送到Broker服务器中
+通过RabbitMQ的Confirm机制，在pro
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/MyBatis/" class="post-category">
-                                    MyBatis
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -446,8 +532,8 @@ package com.hbatis.v2.s
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/MyBatis/">
-                            <span class="chip bg-color">MyBatis</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -459,34 +545,36 @@ package com.hbatis.v2.s
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/6.huan-cun/redis/1.an-zhuang/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/5.chong-fu-xiao-fei/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis安装">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="MQ重复消费问题">
                             
-                            <span class="card-title">Redis安装</span>
+                            <span class="card-title">MQ重复消费问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Linuxwget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-2.8.17.tar.gz
-tar xzf redis-2.8.17.tar.gz
-cd redis
+                                重复消费问题ID主键基于数据库的唯一键来保证重复数据不会重复插入多条，进行消息入库。主键唯一，做异常处理机制。
+
+比如你拿个数据要写库，你先根据主键查一下，如果这数据都有了，你就别插入了，update一下好吧。
+
+Redis使用redis做
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -497,8 +585,8 @@ cd redis
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Redis/">
-                            <span class="chip bg-color">Redis</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -510,34 +598,33 @@ cd redis
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/6.huan-cun/redis/10.ji-qun/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/2.xiao-xi-mo-shi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Redis集群">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="RabbitMq模式">
                             
-                            <span class="card-title">Redis集群</span>
+                            <span class="card-title">RabbitMq模式</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                主从复制redis 主从复制的核心原理
-当启动一个 slave node 的时候，它会发送一个 PSYNC 命令给 master node。
-如果这是 slave node 初次连接到 master node，那么会触发一次 full re
+                                简单模式一个生产者P发送消息到队列Q,一个消费者C接收
+https://java-run-blog.oss-cn-zhangjiakou.aliyuncs.com/blog/u=3536793445,2882105203&amp;fm=26
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -548,8 +635,8 @@ cd redis
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Redis/">
-                            <span class="chip bg-color">Redis</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -561,26 +648,23 @@ cd redis
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/6.huan-cun/redis/11.lock/">
+                    <a href="/2023/08/27/4.shu-ju-ku/clickhouse/1.jie-shao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Redis实现分布式锁">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="ClickHouse介绍">
                             
-                            <span class="card-title">Redis实现分布式锁</span>
+                            <span class="card-title">ClickHouse介绍</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Redis实现分布式锁Redis实现分布式锁利用 SETNX 和 SETEX
-基本命令主要有：
+                                什么是ClickHouse？ClickHouse是一个用于联机分析(OLAP)的列式数据库管理系统(DBMS)。
+在传统的行式数据库系统中，数据按如下顺序存储：
 
-SETNX(SET If Not Exists)：
-
-当且仅当 Key 不存在时，则可以设置，否则不做任何动作。
-当且仅当 key 不存在，将
+常见的行式数据库系统有： MySQL、Postgres和MS SQL Ser
                             
                         </div>
                         <div class="publish-info">
@@ -591,8 +675,8 @@ SETNX(SET If Not Exists)：
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/ClickHouse/" class="post-category">
+                                    ClickHouse
                                 </a>
                                 
                                 
@@ -603,116 +687,8 @@ SETNX(SET If Not Exists)：
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Redis/">
-                            <span class="chip bg-color">Redis</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/08/27/6.huan-cun/redis/2.shu-ju-lei-xing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis数据类型">
-                            
-                            <span class="card-title">Redis数据类型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                string使用
-这是最基本的类型了，没啥可说的，就是普通的set和get，做简单的kv缓存
-
-应用场景
-redis锁
-字符串记录
-
-原理存储数据三种类型：
-
-int: 长度 1 num类型。set int_key &quot;111&qu
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Redis/">
-                            <span class="chip bg-color">Redis</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/08/27/6.huan-cun/redis/3.ying-yong-chang-jing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Redis应用场景">
-                            
-                            <span class="card-title">Redis应用场景</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                高性能假设这么个场景，你有个操作，一个请求过来，吭哧吭哧你各种乱七八糟操作mysql，半天查出来一个结果，耗时600ms。但是这个结果可能接下来几个小时都不会变了，或者变了也可以不用立即反馈给用户。那么此时咋办？
-缓存啊，折腾600ms查出
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Redis/">
-                            <span class="chip bg-color">Redis</span>
+                        <a href="/tags/ClickHouse/">
+                            <span class="chip bg-color">ClickHouse</span>
                         </a>
                         
                     </div>
@@ -738,7 +714,7 @@ int: 长度 1 num类型。set int_key &quot;111&qu
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 24</div>
+            <div class="center-align b-text-gray">4 / 23</div>
         </div>
         <div class="col s6 m4 l4">
             

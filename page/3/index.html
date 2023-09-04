@@ -248,33 +248,37 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring/1.ji-ben-jiao-cheng/">
+                    <a href="/2023/09/04/8.fen-bu-shi/rpc/dubbo/1.ji-ben-ying-yong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Spring教程">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="dubbo基本应用">
                             
-                            <span class="card-title">Spring教程</span>
+                            <span class="card-title">dubbo基本应用</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基本教程官网地址
+                                负载均衡&lt;dubbo:service interface="..." loadbalance="roundrobin" />
 
+
+注解:
+@Service(loadbalance = "roundrobin")
+public clas
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring/" class="post-category">
-                                    Spring
+                                <a href="/categories/dubbo/" class="post-category">
+                                    dubbo
                                 </a>
                                 
                                 
@@ -285,8 +289,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring/">
-                            <span class="chip bg-color">Spring</span>
+                        <a href="/tags/dubbo/">
+                            <span class="chip bg-color">dubbo</span>
                         </a>
                         
                     </div>
@@ -298,32 +302,36 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring/5.aop-yuan-ma-fen-xi/">
+                    <a href="/2023/09/04/8.fen-bu-shi/rpc/dubbo/2.spi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Spring的AOP源码解析">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="dubbo的 SPI 机制">
                             
-                            <span class="card-title">Spring的AOP源码解析</span>
+                            <span class="card-title">dubbo的 SPI 机制</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Spring AOP 源码分析AOP 是 OOP 的延续，是 Aspect Oriented Programming 的缩写，意思是面向切面编程。可以通过预 编译方式和运行期动态代理实现在不修改源代码的情况下给程序动态统一添加功能的一种技术
+                                如何去实现一个标准的 SPI 发现机制呢?
+需要在 classpath 下创建一个目录，该目录命名必须是:META-INF/service
+在该目录下创建一个 properties 文件，该文件需要满足以下几个条件
+
+文件名必须是扩展的接口
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring/" class="post-category">
-                                    Spring
+                                <a href="/categories/dubbo/" class="post-category">
+                                    dubbo
                                 </a>
                                 
                                 
@@ -334,8 +342,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring/">
-                            <span class="chip bg-color">Spring</span>
+                        <a href="/tags/dubbo/">
+                            <span class="chip bg-color">dubbo</span>
                         </a>
                         
                     </div>
@@ -347,34 +355,38 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring/7.shi-wu/">
+                    <a href="/2023/09/04/8.fen-bu-shi/rpc/grpc/1.protobuf-yuan-li/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Spring的事务">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="protobuf协议">
                             
-                            <span class="card-title">Spring的事务</span>
+                            <span class="card-title">protobuf协议</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                基础配置 &lt;aop:aspectj-autoproxy proxy-target-class="true"/>
-
- &lt;bean id="transactionManager" class="org.springframework
+                                public static void main(String[] args) &#123;
+    UserProtos.User user=UserProtos.User.newBuilder().
+        setAge(300)
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring/" class="post-category">
-                                    Spring
+                                <a href="/categories/gRPC/" class="post-category">
+                                    gRPC
+                                </a>
+                                
+                                <a href="/categories/gRPC/RPC/" class="post-category">
+                                    RPC
                                 </a>
                                 
                                 
@@ -385,8 +397,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring/">
-                            <span class="chip bg-color">Spring</span>
+                        <a href="/tags/gRPC/">
+                            <span class="chip bg-color">gRPC</span>
                         </a>
                         
                     </div>
@@ -398,32 +410,33 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-boot/1.springboot-chu-shi/">
+                    <a href="/2023/09/04/8.fen-bu-shi/rpc/grpc/2.grpc/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Spring Boot介绍">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="gRPC中文地址">
                             
-                            <span class="card-title">Spring Boot介绍</span>
+                            <span class="card-title">gRPC中文地址</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                什么是Spring Boot?对于 spring 框架，我们接触得比较多的应该是 spring mvc、 和 spring。而 spring 的核心在于 IOC(控制反转)和 DI (依赖注入)。而这些框架在使用的过程中会需要配置大量 的 
+                                http://doc.oschina.net/grpc?t=60134 
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Boot/" class="post-category">
-                                    Spring Boot
+                                <a href="/categories/gRPC/" class="post-category">
+                                    gRPC
                                 </a>
                                 
                                 
@@ -434,8 +447,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Boot/">
-                            <span class="chip bg-color">Spring Boot</span>
+                        <a href="/tags/gRPC/">
+                            <span class="chip bg-color">gRPC</span>
                         </a>
                         
                     </div>
@@ -447,32 +460,42 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-boot/2.yuan-ma-jie-du/">
+                    <a href="/2023/09/04/10.suan-fa/shu-zu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Spring Boot源码解读">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="数组常用算法解题思路">
                             
-                            <span class="card-title">Spring Boot源码解读</span>
+                            <span class="card-title">数组常用算法解题思路</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                从 SpringBootApplication 注解入手为了揭开 springboot 的奥秘，我们直接从 Annotation 入 手，看看@SpringBootApplication 里面，做了什么? 打开 SpringBootAppl
+                                1. 排序类
+归并排序
+快排
+冒泡等
+
+2. 对撞指针左边指针 和 右边指针 向 中间移动。
+3. 快慢指针一个指针快，一个指针慢。
+4. 查找
+二分查找
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Boot/" class="post-category">
-                                    Spring Boot
+                                <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                                 
                                 
@@ -483,8 +506,8 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Boot/">
-                            <span class="chip bg-color">Spring Boot</span>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
                         </a>
                         
                     </div>
@@ -496,41 +519,34 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-cloud/1.consul/">
+                    <a href="/2023/09/04/11.gong-ju/centos/1.centos-xia-ruan-jian-an-zhuang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Spring Cloud 之 Consule">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="centos下软件安装">
                             
-                            <span class="card-title">Spring Cloud 之 Consule</span>
+                            <span class="card-title">centos下软件安装</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                docker 下环境搭建.env文件:
-
-CONSUL_IDR=./
-  
-docker-compose.yml文件：
-  
-version: '3'
-services:
-  consul:
-    image: consul:latest
+                                JDK：下载地址：https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+解压，配置环境变量即可。
+centos：查看端口开放
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Cloud/" class="post-category">
-                                    Spring Cloud
+                                <a href="/categories/centos/" class="post-category">
+                                    centos
                                 </a>
                                 
                                 
@@ -541,8 +557,8 @@ services:
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Cloud/">
-                            <span class="chip bg-color">Spring Cloud</span>
+                        <a href="/tags/centos/">
+                            <span class="chip bg-color">centos</span>
                         </a>
                         
                     </div>
@@ -554,35 +570,36 @@ services:
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-cloud/2.ribbon/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/9.si-xin-dui-lie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Spring Cloud 之 Ribbon">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="RabbitMq死信队列">
                             
-                            <span class="card-title">Spring Cloud 之 Ribbon</span>
+                            <span class="card-title">RabbitMq死信队列</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                通过Spring Cloud Ribbon的封装，我们在微服务架构中使用客户端负载均衡调用非常简单，只需要两步：
+                                死信队列介绍
+死信队列：DLX，dead-letter-exchange
+利用DLX，当消息在一个队列中变成死信 (dead message) 之后，它能被重新publish到另一个Exchange，这个Exchange就是DLX
 
-服务提供者只需要启动多个服务实例并注册到一个注册中心或多个相关联的服务注册中心。
-服务消费者直接通过调用被@LoadBala
+消息变
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Cloud/" class="post-category">
-                                    Spring Cloud
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -593,8 +610,8 @@ services:
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Cloud/">
-                            <span class="chip bg-color">Spring Cloud</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -606,32 +623,36 @@ services:
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-cloud/3.feign/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/8.xiao-xi-ji-ya/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Spring Cloud 之 Feign">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="RabbitMq消息积压">
                             
-                            <span class="card-title">Spring Cloud 之 Feign</span>
+                            <span class="card-title">RabbitMq消息积压</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Feign是什么?Feign是一个声明式WebService客户端.使用Feign能让编写WebService客户端更加简单,它的使用方法是定义一个接口,然后在上面添加注解,同时也支持JAX-RS标准的注解.Feign也支持可拔插式的编码器
+                                生产消息积压解决思路：
+
+先修复consumer的问题，确保其恢复消费速度，然后将现有cnosumer都停掉
+新建一个topic，partition是原来的10倍，临时建立好原先10倍或者20倍的queue数量
+然后写一个临时的分发数据的c
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Cloud/" class="post-category">
-                                    Spring Cloud
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -642,8 +663,8 @@ services:
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Cloud/">
-                            <span class="chip bg-color">Spring Cloud</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -655,32 +676,34 @@ services:
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2023/08/27/5.kuang-jia/spring-cloud/4.config/">
+                    <a href="/2023/08/30/7.mq/rabbitmq/7.gao-ke-yong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Spring Cloud 之 Config">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="RabbitMq消息丢失问题">
                             
-                            <span class="card-title">Spring Cloud 之 Config</span>
+                            <span class="card-title">RabbitMq消息丢失问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                为什么要统一管理微服务配置对于Spring Boot应用，我们可以将配置内容写入application.yml，设置多个profile，也可以用多个application-&#123;profile&#125;.properties文件配置
+                                高可用rabbitmq有三种模式：单机模式，普通集群模式，镜像集群模式
+单机模式就是demo级别的，一般就是你本地启动了玩玩儿的，没人生产用单机模式。
+普通集群模式意思就是在多台机器上启动多个rabbitmq实例，每个机器启动一个。但是你创
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Spring-Cloud/" class="post-category">
-                                    Spring Cloud
+                                <a href="/categories/RabbitMq/" class="post-category">
+                                    RabbitMq
                                 </a>
                                 
                                 
@@ -691,8 +714,8 @@ services:
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Spring-Cloud/">
-                            <span class="chip bg-color">Spring Cloud</span>
+                        <a href="/tags/RabbitMq/">
+                            <span class="chip bg-color">RabbitMq</span>
                         </a>
                         
                     </div>
@@ -718,7 +741,7 @@ services:
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">3 / 24</div>
+            <div class="center-align b-text-gray">3 / 23</div>
         </div>
         <div class="col s6 m4 l4">
             
