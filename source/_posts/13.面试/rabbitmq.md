@@ -5,9 +5,8 @@ keywords: RabbitMQ
 description: RabbitMQ
 tags:
   - 面试
-  - RabbitMq
 categories:
-  - RabbitMq
+  - 面试
 ---
 
 ## Rabbitmq消息模式

@@ -5,9 +5,8 @@ keywords: Spring面试题,Spring
 description: Spring面试题,Spring
 tags:
   - 面试
-  - Spring
 categories:
-  - Spring
+  - 面试
 ---
 
 ## 什么是 Spring 框架

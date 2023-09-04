@@ -1,3 +1,14 @@
+---
+title: centos下常见操作
+date: 2023-09-04
+keywords:  centos下常见操作
+description:  常见操作,vim,无线连接，挂在硬盘
+top: false
+tags:
+  -  centos
+categories:
+  -  centos
+---
 ##  连接无线网络
 > sudo wpa_supplicant -B -i wlp4s0 -c <(wpa_passphrase "[SSID]" "[PIN]") 
 > sudo dhclient wlp4s0
@@ -34,6 +45,12 @@
 > 设置开机自动挂载: vi /etc/fstab 
 > 在vi中输入i进入INERT模式，将光标移至文件结尾处并回车，将下面的内容复制/粘贴，然后按Esc键，输入":wq"(不含双引号)保存并退出
 > /dev/sdb    /data    ext4    defaults    0 0
+
+## centos下挂在 extfat格式文件
+1.yum install -y http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
+2.yum install exfat-utils fuse-exfat
+
+mount -t extfat /dev/sdc /data
 
 ## 修改阿里源
 > cd /etc/yum.repos.d

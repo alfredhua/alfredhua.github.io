@@ -3,8 +3,8 @@ title: MyBatis面试题库
 date: 2021-11-11
 keywords: MyBatis面试题,MyBatis
 description: MyBatis面试题,MyBatis
+top: true
 tags:
-  - 面试
 	- MyBatis
 categories:
   - MyBatis

@@ -4,10 +4,9 @@ date: 2021-11-21
 keywords: RPC
 description: RPC
 tags:
-  - RPC
   - 面试
 categories:
-  - RPC
+  - 面试
 ---
 
 ## IO模型

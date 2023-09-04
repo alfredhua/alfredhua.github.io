@@ -1,8 +1,13 @@
 ---
-title: 分布式事务-码农阿华
-keywords: 分布式事务
-description: 分布式事务
-
+title: 分布式事务
+date: 2023-09-04
+keywords:  分布式事务
+description:  分布式事务
+top: false
+tags:
+  -  seata
+categories:
+  -  seata
 ---
 
 ## 事务

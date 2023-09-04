@@ -4,10 +4,9 @@ date: 2021-11-21
 keywords: MySQL
 description: MySQL
 tags:
-  - MySQL
   - 面试
 categories:
-  - MySQL
+  - 面试
 ---
 
 ## MySQL的执行流程

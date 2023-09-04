@@ -1,3 +1,15 @@
+--- 
+title: elasticsearch面试题
+date: 2023-09-04
+keywords:  elasticsearch面试题
+description:  elasticsearch面试题
+top: false
+tags:
+  -  面试
+categories:
+  -  面试
+---
+
 # elasticsearch 了解多少，说说你们公司 es 的集群架构，索引数据大小，分片有多少，以及一些调优手段 。
 > 如： ES 集群架构 13 个节点，索引根据通道不同共 20+索引，根据日期，每日递增 20+，索引：10分片，每日递增 1 亿+数据，每个通道每天索引大小控制：150GB 之内。
 
